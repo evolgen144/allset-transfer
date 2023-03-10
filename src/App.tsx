@@ -1,5 +1,17 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
+  IonHeader,
+  IonToolbar,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonSegment,
+  IonSegmentButton,
+  IonContent,
+  IonItem,
+  IonInput,
+  IonButton,
+  IonFooter,
   IonApp,
   IonIcon,
   IonLabel,
@@ -57,7 +69,7 @@ const App: React.FC = () => (
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonLabel>Tab One</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon aria-hidden="true" icon={ellipse} />
