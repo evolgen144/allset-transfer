@@ -15,6 +15,7 @@ import {
   IonApp,
   IonIcon,
   IonLabel,
+  IonTextarea,
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
@@ -50,38 +51,68 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab One</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+
+        <IonHeader class="as_header">
+            <IonToolbar class="as_toolbar">
+                <IonGrid class="as_headerGrid">
+                    <IonRow class="ion-align-items-center ion-justify-content-center">
+                        <IonCol size="auto" class="ion-text-center">
+                          {/* <img class="logo" src="..resources/logo.png" alt="AllSetLogo"> */}
+                        </IonCol>
+                    </IonRow>
+                    <IonRow>
+                        <IonSegment class="as_topNavSegment" id="hireSeg" value="Hire">
+                            <IonSegmentButton value="Hire">
+                                <IonLabel class="as_topNavButton">Hire</IonLabel>
+                            </IonSegmentButton>
+                            <IonSegmentButton value="Get Hired">
+                                <IonLabel class="as_topNavButton">Get Hired</IonLabel>
+                            </IonSegmentButton>
+                        </IonSegment>
+                    </IonRow>
+                </IonGrid>
+            </IonToolbar>
+        </IonHeader>
+
+        <IonContent class="ion-padding">
+            <IonItem>
+                <IonLabel position="floating">The project's name?</IonLabel>
+                <IonInput id="as_projectName" class="as_input" clear-input="true" placeholder="Name?"  value=""></IonInput>
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The role or position?</IonLabel>
+                <IonInput id="as_role" class="as_input" clear-input="true" placeholder="Role/position?" value=""></IonInput>
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The budget?</IonLabel>
+                <IonInput id="as_budget" class="as_input" clear-input="true" placeholder="Budget?" value=""></IonInput>
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The project's location?</IonLabel>
+                <IonInput id="as_location" class="as_input" clear-input="true" placeholder="Location?" value=""></IonInput>
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The date(s)?</IonLabel>
+                <IonInput  id="as_date" class="as_input" clear-input="true" placeholder="Date(s)?" value=""></IonInput>
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The details?</IonLabel>
+                <IonTextarea id="as_details" class="as_textarea_1" auto-grow="true" clear-input="true" placeholder="Additional Details?" value=""></IonTextarea>
+            </IonItem>
+
+            <IonGrid>
+                <IonRow>
+                    <IonCol>
+                        <IonButton id='as_hireSubmit' class="as_hireBtns" expand="block"><IonIcon slot="start"  name="checkmark-outline"></IonIcon>Submit</IonButton>
+                    </IonCol>
+                    <IonCol>
+                        <IonButton id='as_hireCancel' class="as_hireBtns" expand="block"><IonIcon slot="start"  name="refresh-outline"></IonIcon>Reset</IonButton>
+                    </IonCol>
+                </IonRow>
+            </IonGrid>
+        
+        </IonContent>
+
   </IonApp>
 );
 
