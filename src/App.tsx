@@ -48,48 +48,33 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
-import React, { useRef } from 'react';
+import { refresh } from 'ionicons/icons';
+import React, { useRef,useState } from 'react';
 
 setupIonicReact();
 
 const App: React.FC = () => {
 
-  const as_projectNameRef = useRef<HTMLIonInputElement>(null)
-  const as_roleRef = useRef<HTMLIonInputElement>(null)
-  const as_budgetRef = useRef<HTMLIonInputElement>(null)
-  const as_locationRef = useRef<HTMLIonInputElement>(null)
-  const as_dateRef = useRef<HTMLIonInputElement>(null)
-  const as_detailsRef = useRef<HTMLIonTextareaElement>(null)
+  const [ProjectName, setProjecttName] = useState<string>('');
+  const [Role, setRole] = useState<string>('');
+  const [Budget, setBudget] = useState<string>('');
+  const [Location, setLocation] = useState<string>('');
+  const [Date, setDate] = useState<string>('');
+  const [Details, setDetails] = useState<string>('');
+  
+  const pressSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    console.log(ProjectName, Role, Budget, Location, Date, Details);
+  }
 
-
-  const submitBtn = () => {
-      const projectEntered = as_projectNameRef.current!.value
-      const roletEntered = as_roleRef.current!.value
-      const budgetEntered = as_budgetRef.current!.value
-      const locationEntered = as_locationRef.current!.value
-      const dateEntered = as_dateRef.current!.value
-      const detailsEntered = as_detailsRef.current!.value
-    console.log(
-      projectEntered,
-      roletEntered,
-      budgetEntered,
-      locationEntered,
-      dateEntered,
-      detailsEntered
-    )
-}
-
-  const refreshBtn = () => {
-    as_projectNameRef.current!.value = ''
-    as_roleRef.current!.value = ''
-    as_budgetRef.current!.value = ''
-    as_locationRef.current!.value = ''
-    as_dateRef.current!.value = ''
-    as_detailsRef.current!.value = ''
-}
-
-
+  const handleReset = (): void => {
+    setProjecttName('');
+    setRole('');
+    setBudget('');
+    setLocation('');
+    setDate('');
+    setDetails('');
+  };
 
   return(<IonApp>
 
@@ -117,41 +102,37 @@ const App: React.FC = () => {
 
     <IonContent className="ion-padding">
 
-        <IonItem>
-            <IonLabel position="floating">The project's name?</IonLabel>
-            <IonInput id="as_projectName" ref={as_projectNameRef} class="as_input" clear-input="true" placeholder="Name?"  value=""></IonInput>
-        </IonItem>
-        <IonItem>
-            <IonLabel position="floating">The role or position?</IonLabel>
-            <IonInput id="as_role" ref={as_roleRef} class="as_input" clear-input="true" placeholder="Role/position?" value=""></IonInput>
-        </IonItem>
-        <IonItem>
-            <IonLabel position="floating">The budget?</IonLabel>
-            <IonInput id="as_budget" ref={as_budgetRef} class="as_input" clear-input="true" placeholder="Budget?" value=""></IonInput>
-        </IonItem>
-        <IonItem>
-            <IonLabel position="floating">The project's location?</IonLabel>
-            <IonInput id="as_location" ref={as_locationRef} class="as_input" clear-input="true" placeholder="Location?" value=""></IonInput>
-        </IonItem>
-        <IonItem>
-            <IonLabel position="floating">The date(s)?</IonLabel>
-            <IonInput  id="as_date" ref={as_dateRef} class="as_input" clear-input="true" placeholder="Date(s)?" value=""></IonInput>
-        </IonItem>
-        <IonItem>
-            <IonLabel position="floating">The details?</IonLabel>
-            <IonTextarea id="as_details" ref={as_detailsRef} class="as_textarea_1" auto-grow="true" clear-input="true" placeholder="Additional Details?" value=""></IonTextarea>
-        </IonItem>
-
-        <IonGrid>
-            <IonRow>
-                <IonCol>
-                    <IonButton onClick={submitBtn} class="as_hireBtns" expand="block"><IonIcon slot="start"  icon={checkmarkOutline} />Submit</IonButton>
-                </IonCol>
-                <IonCol>
-                    <IonButton onClick={refreshBtn} class="as_hireBtns" expand="block"><IonIcon slot="start"  icon={refreshOutline} />Reset</IonButton>
-                </IonCol>
-            </IonRow>
-        </IonGrid>
+        <form onSubmit={pressSubmit}>
+            <IonItem>
+                <IonLabel position="floating">The project's name?</IonLabel>
+                <IonInput placeholder="Project Name" value={ProjectName} onIonChange={(e) => setProjecttName(e.detail.value!)} />
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The role or position?</IonLabel>
+                <IonInput placeholder="Role" value={Role} onIonChange={(e) => setRole(e.detail.value!)} />
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The budget?</IonLabel>
+                <IonInput placeholder="Budget" value={Budget} onIonChange={(e) => setBudget(e.detail.value!)} />
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The project's location?</IonLabel>
+                <IonInput placeholder="Location" value={Location} onIonChange={(e) => setLocation(e.detail.value!)} />
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The date(s)?</IonLabel>
+                <IonInput placeholder="Date" value={Date} onIonChange={(e) => setDate(e.detail.value!)} />
+            </IonItem>
+            <IonItem>
+                <IonLabel position="floating">The details?</IonLabel>
+                <IonTextarea placeholder="Details" value={Details} onIonChange={(e) => setDetails(e.detail.value!)} />
+            </IonItem>
+            <IonButton type="submit">Submit</IonButton>
+            <IonButton type="button" onClick={handleReset}>
+                <IonIcon icon={refresh} />
+                Reset
+            </IonButton>
+        </form>
 
     </IonContent>
 
