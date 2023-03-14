@@ -48,8 +48,21 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
+/* All-Set config */
 import { refresh } from 'ionicons/icons';
-import React, { useRef,useState } from 'react';
+import React, { useState } from 'react';
+import './pages/App.css';
+import {MongoClient, Db } from 'mongodb';
+
+/* MongoDB */
+// const uri: string = 'mongodb+srv://Phil:Sp9IFET6c7ceIWQa@maiya.engxn.mongodb.net/?retryWrites=true&w=majority'
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 setupIonicReact();
 
@@ -78,12 +91,12 @@ const App: React.FC = () => {
 
   return(<IonApp>
 
-    <IonHeader class="as_header">
-        <IonToolbar class="as_toolbar">
-            <IonGrid class="as_headerGrid">
-                <IonRow className="ion-align-items-center ion-justify-content-center">
-                    <IonCol size="12" className="ion-text-center">
-                      <IonImg class="logo" src={logo} alt="AllSetLogo" style={{ width: '40%', height: '40%' }}/>
+    <IonHeader className="as_header">
+        <IonToolbar className="as_toolbar">
+            <IonGrid className="as_grid">
+                <IonRow>
+                    <IonCol size="12" className="ion-text-center colSize">
+                      <IonImg src={logo} alt="AllSetLogo" style={{ height: '40%' }}/>
                     </IonCol>
                 </IonRow>
                 <IonRow>

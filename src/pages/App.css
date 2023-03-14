@@ -1,0 +1,24 @@
+.as_header {
+    background-color: #85d908d8;
+    color: #40449f;
+    font-size: 20px;
+    padding: 0px;
+}
+
+.as_toolbar {
+    /* background-color: #e21d16; */
+    color: white;
+    font-size: 20px;
+    padding: 0px;
+}
+
+.as_grid {
+    background-color: #ecf0f7;
+    color: #464aa3;
+    font-size: 20px;
+    padding: 0px;
+}
+
+.colSize {
+   margin-bottom: -50px;
+}
