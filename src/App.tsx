@@ -53,16 +53,13 @@ import './theme/variables.css';
 import { refresh } from 'ionicons/icons';
 import React, { useState } from 'react';
 import './pages/App.css';
-import {MongoClient, Db } from 'mongodb';
 
 /* MongoDB */
-// const uri: string = 'mongodb+srv://Phil:Sp9IFET6c7ceIWQa@maiya.engxn.mongodb.net/?retryWrites=true&w=majority'
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
+// import * as Realm from "realm-web";
+// const app = new Realm.App({ id: "all-set-wgyfg" });
+// const credentials = Realm.Credentials.anonymous();
+// const user = await app.logIn(credentials);
+// console.log(user.id)
 
 setupIonicReact();
 
