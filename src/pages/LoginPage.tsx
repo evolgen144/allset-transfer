@@ -16,23 +16,16 @@ import {
   IonButton,
     } from "@ionic/react";
 
-/* Login imports */
+/* Auth0 imports */
+// 41153T.app
+import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../components/LoginButton'
 
 
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const history = useHistory();
-    
-    const handleLogin = () => {
-        console.log('Email:', email);
-        console.log('Password:', password);
-        history.push('/Hire')
-      };
 
-    return (
-      <LoginButton />
+  return (
+    <LoginButton />
 
 
 

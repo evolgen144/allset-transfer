@@ -53,6 +53,9 @@ import '../theme/variables.css';
 import { refresh } from 'ionicons/icons';
 import React, { useState } from 'react';
 
+/* Auth0 */
+import LogoutButton from '../components/LogoutButton';
+
 /* MongoDB */
 // import * as Realm from "realm-web";
 // const app = new Realm.App({ id: "all-set-wgyfg" });
@@ -141,6 +144,7 @@ const Hire: React.FC = () => {
                 <IonIcon icon={refresh} />
                 Reset
             </IonButton>
+            <LogoutButton />
         </form>
 
     </IonContent>
