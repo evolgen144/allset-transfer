@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
-import Hire from "./pages/Hire";
+import Main from "./pages/Main";
 import AgreementPage from './pages/LoginPage';
 
 import {
@@ -70,7 +70,7 @@ const App: React.FC = () => (
         <IonReactRouter>
             <IonRouterOutlet>
                 <Route path="/login" component={LoginPage} exact />
-                <Route path="/hire" component={Hire} exact />
+                <Route path="/Main" component={Main} exact />
                 <Route exact path="/" render={() => <Redirect to="/login" />} />
             </IonRouterOutlet>
         </IonReactRouter>
