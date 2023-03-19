@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
 import Hire from "./pages/Hire";
+import AgreementPage from './pages/LoginPage';
 
 import {
   IonHeader,

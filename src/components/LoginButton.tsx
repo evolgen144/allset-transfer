@@ -4,7 +4,7 @@ import { IonButton } from '@ionic/react';
 
 const LoginButton: React.FC = () => {
   const { loginWithRedirect } = useAuth0();
-  
+
   return (
   <IonButton onClick={() => loginWithRedirect()}>
     Log in

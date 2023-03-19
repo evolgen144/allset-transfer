@@ -1,0 +1,25 @@
+.container {
+    background-color: #ecf0f7;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+  }
+
+:root {
+  --ion-color-allset: #3f439f;
+  --ion-color-allset-rgb: 63,67,159;
+  --ion-color-allset-contrast: #ffffff;
+  --ion-color-allset-contrast-rgb: 255,255,255;
+  --ion-color-allset-shade: #373b8c;
+  --ion-color-allset-tint: #5256a9;
+}
+  
+.ion-color-allset {
+  --ion-color-base: var(--ion-color-allset);
+  --ion-color-base-rgb: var(--ion-color-allset-rgb);
+  --ion-color-contrast: var(--ion-color-allset-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-allset-contrast-rgb);
+  --ion-color-shade: var(--ion-color-allset-shade);
+  --ion-color-tint: var(--ion-color-allset-tint);
+}
