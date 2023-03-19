@@ -23,3 +23,42 @@
   --ion-color-shade: var(--ion-color-allset-shade);
   --ion-color-tint: var(--ion-color-allset-tint);
 }
+
+.ion-grid-center {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro_text {
+  color: #40449f;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.intro_text2 {
+  color: #25285e;
+  font-size: 15px;
+  margin-bottom: 70px;
+}
+
+ion-radio {
+  --border-radius: 4px;
+  --inner-border-radius: 4px;
+
+  --color: #ddd;
+  --color-checked: #6815ec;
+}
+
+ion-radio.ios {
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.radio-checked.ios {
+  border-color: #6815ec;
+}
