@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
-import Calendar, { CalendarValue } from 'react-calendar';
+import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 const CalendarExample: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
 
-  const onDateChange = (newDate: CalendarValue) => {
-    setDate(newDate as Date);
+  const onDateChange = (newDate: Date) => {
+    setDate(newDate);
   };
 
   return (

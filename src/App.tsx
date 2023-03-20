@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
-import AgreementPage from './pages/LoginPage';
+import CalendarExample from './pages/Calendar';
 
 import {
   IonHeader,
@@ -72,6 +72,7 @@ const App: React.FC = () => (
                 <Route path="/login" component={LoginPage} exact />
                 <Route path="/Main" component={Main} exact />
                 <Route exact path="/" render={() => <Redirect to="/login" />} />
+                <Route path="/Calendar" component={CalendarExample} exact />
             </IonRouterOutlet>
         </IonReactRouter>
     </IonApp>
