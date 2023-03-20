@@ -86,10 +86,10 @@ const Main: React.FC = () => {
                         <IonRow>
                             <IonSegment className="full-width-segment" value={selectedSegment} onIonChange={(e) => setSelectedSegment(e.detail.value as string)} >
                                 <IonSegmentButton value="Hire">
-                                    <IonLabel class="as_topNavButton">Hire</IonLabel>
+                                    <IonLabel class="as_topNavButton">HIRE</IonLabel>
                                 </IonSegmentButton>
                                 <IonSegmentButton value="GetHired">
-                                    <IonLabel class="as_topNavButton">Get Hired</IonLabel>
+                                    <IonLabel class="as_topNavButton">GET HIRED</IonLabel>
                                 </IonSegmentButton>
                             </IonSegment>
                         </IonRow>
