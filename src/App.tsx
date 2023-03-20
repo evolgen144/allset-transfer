@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
+
+/* App Pages */
 import LoginPage from "./pages/LoginPage";
 import Main from "./pages/Main";
-import CalendarExample from './pages/Calendar';
+import Search from "./pages/Search"
+import Profile from "./pages/Profile"
+import Cal from "./pages/Calendar";
+import Messages from "./pages/Messages";
+import Settings from "./pages/Settings";
+
 
 import {
   IonHeader,
@@ -29,6 +36,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { search, person, calendar, chatbox, settings } from 'ionicons/icons';
 import { ellipse, square, triangle, checkmarkOutline, refreshOutline } from 'ionicons/icons';
 import logo from './assets/logo.png';
 
@@ -68,12 +76,40 @@ setupIonicReact();
 const App: React.FC = () => (
     <IonApp>
         <IonReactRouter>
-            <IonRouterOutlet>
-                <Route path="/login" component={LoginPage} exact />
-                <Route path="/Main" component={Main} exact />
-                <Route exact path="/" render={() => <Redirect to="/login" />} />
-                <Route path="/Calendar" component={CalendarExample} exact />
-            </IonRouterOutlet>
+            <IonTabs>
+                <IonRouterOutlet>
+                    <Route exact path="/" render={() => <Redirect to="/Login" />} />
+                    <Route path="/Login" component={LoginPage} exact />
+                    <Route path="/Main" component={Main} exact />
+                    <Route path="/Search" component={Search} exact />
+                    <Route path="/Profile" component={Profile} exact />
+                    <Route path="/Messages" component={Messages} exact />
+                    <Route path="/Calendar" component={Cal} exact />
+                    <Route path="/Settings" component={Settings} exact />
+                </IonRouterOutlet>
+                <IonTabBar slot="bottom">
+                    <IonTabButton tab="Search" href="/Search">
+                        <IonIcon icon={search} />
+                        <IonLabel>Search</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="Profile" href="/Profile">
+                        <IonIcon icon={person} />
+                        <IonLabel>Profile</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="Calendar" href="/Calendar">
+                        <IonIcon icon={calendar} />
+                        <IonLabel>Calendar</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="Messages" href="/Messages">
+                        <IonIcon icon={chatbox} />
+                        <IonLabel>Messages</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="Settings" href="/Settings">
+                        <IonIcon icon={settings} />
+                        <IonLabel>Settings</IonLabel>
+                    </IonTabButton>
+                </IonTabBar>
+            </IonTabs>
         </IonReactRouter>
     </IonApp>
 );

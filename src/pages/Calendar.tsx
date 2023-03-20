@@ -3,7 +3,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/rea
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const CalendarExample: React.FC = () => {
+const Cal: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   const onDateChange = (newDate: Date) => {
@@ -14,7 +14,7 @@ const CalendarExample: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Calendar Example</IonTitle>
+          <IonTitle>Calendar</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -24,4 +24,4 @@ const CalendarExample: React.FC = () => {
   );
 };
 
-export default CalendarExample;
+export default Cal;
