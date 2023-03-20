@@ -16,7 +16,7 @@ root.render(
     domain={domain}
     clientId={clientId}
     authorizationParams={{
-      redirect_uri: 'http://localhost:8100/Hire'
+      redirect_uri: 'http://localhost:8100/Main'
     }}
   >
     <React.StrictMode>
