@@ -88,8 +88,8 @@ const LoginPage: React.FC = () => {
 
               <IonModal isOpen={showTerms} onDidDismiss={() => setShowTerms(false)}>
                 <IonContent className="ion-padding">
-                    <h2>Terms and Conditions</h2>
-                    <p>Put your terms and conditions content here.</p>
+                    <h2 className="intro_text">Terms and Conditions</h2>
+                    <p className="intro_text2">Put your terms and conditions content here.</p>
                   <IonButton expand="full" color="light" onClick={() => setShowTerms(false)}>
                     Close
                   </IonButton>

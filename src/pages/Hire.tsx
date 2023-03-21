@@ -51,9 +51,6 @@ import '../theme/variables.css';
 import { refresh } from 'ionicons/icons';
 
 
-/* Auth0 */
-import LogoutButton from '../components/LogoutButton';
-
 const Hire: React.FC = () => {
     const [ProjectName, setProjecttName] = useState<string>('');
 
@@ -118,12 +115,19 @@ const Hire: React.FC = () => {
                         <IonLabel position="floating">The details?</IonLabel>
                         <IonTextarea placeholder="Details" value={Details} onIonChange={(e) => setDetails(e.detail.value!)} />
                     </IonItem>
-                    <IonButton className="custom-button" type="submit">Submit</IonButton>
-                    <IonButton className="custom-button" type="button" onClick={handleReset}>
-                        <IonIcon icon={refresh} />
-                        Reset
-                    </IonButton>
-                    <LogoutButton />
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol size='6'>
+                                <IonButton expand='full' className="custom-button" type="submit">Submit</IonButton>
+                            </IonCol>
+                            <IonCol size='6'>
+                                <IonButton expand='full' className="custom-button" type="button" onClick={handleReset}>
+                                    <IonIcon icon={refresh} />
+                                    Reset
+                                </IonButton>
+                            </IonCol>
+                        </IonRow>
+                    </IonGrid>
                 </form>
             </IonContent>
         </IonPage>

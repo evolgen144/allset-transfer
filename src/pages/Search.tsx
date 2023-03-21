@@ -80,7 +80,7 @@ import {
                       <IonGrid className="as_grid">
                           <IonRow>
                               <IonCol size="12" className="ion-text-center colSize">
-                              <IonImg src={logo} alt="AllSetLogo" style={{ height: '40%' }}/>
+                              <IonImg src={logo} alt="AllSetLogo" style={{ height: '25%' }}/>
                               </IonCol>
                           </IonRow>
                           <IonRow>
