@@ -38,6 +38,10 @@ import '../theme/variables.css';
 import { refresh } from 'ionicons/icons';
 
 
+/* Date selection */
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const Hire: React.FC = () => {
     const [ProjectName, setProjecttName] = useState<string>('');
 
@@ -50,22 +54,29 @@ const Hire: React.FC = () => {
     'Production Coordinator', 'Wardrobe Stylist', 'Make Up Artist', 'Hair Stylist', 
     'Art Director', 'Prop Stylist', 'Video', 'Editor', 'Colorist', 'Sound Mixer'];
 
+    const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+    const [startDate, endDate] = dateRange;
+
+
     const [Budget, setBudget] = useState<string>('');
     const [Location, setLocation] = useState<string>('');
-    const [Date, setDate] = useState<string>('');
     const [Details, setDetails] = useState<string>('');
     
     const pressSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
       e.preventDefault();
-      console.log(ProjectName, selectedItems, Budget, Location, Date, Details);
+      console.log(ProjectName, selectedItems, Budget, Location, dateRange, Details);
     }
-  
+
+    /* Date Range */
+    // const [dateRange, setDateRange] = useState([null, null]);
+    // const [startDate, endDate] = dateRange;
+
     const handleReset = (): void => {
       setProjecttName('');
       setSelectedItems([]);
       setBudget('');
       setLocation('');
-      setDate('');
+      setDateRange([null, null]);
       setDetails('');
     };
 
@@ -95,14 +106,23 @@ const Hire: React.FC = () => {
                         <IonInput placeholder="Location" value={Location} onIonChange={(e) => setLocation(e.detail.value!)} />
                     </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">The date(s)?</IonLabel>
-                        <IonInput placeholder="Date" value={Date} onIonChange={(e) => setDate(e.detail.value!)} />
-                    </IonItem>
-                    <IonItem>
                         <IonLabel position="floating">The details?</IonLabel>
-                        <IonTextarea placeholder="Details" value={Details} onIonChange={(e) => setDetails(e.detail.value!)} />
+                        <IonTextarea autoGrow={true} placeholder="Details" value={Details} onIonChange={(e) => setDetails(e.detail.value!)} />
                     </IonItem>
+                    
                     <IonGrid>
+                        <IonRow className='ion-padding'>
+                        <DatePicker
+                            selectsRange={true}
+                            startDate={startDate}
+                            endDate={endDate}
+                            onChange={(update) => {
+                                setDateRange(update);
+                            }}
+                            isClearable={true}
+                            placeholderText="The Date(s)?" 
+                        />
+                        </IonRow>
                         <IonRow>
                             <IonCol size='6'>
                                 <IonButton expand='full' className="custom-button" type="submit">Submit</IonButton>

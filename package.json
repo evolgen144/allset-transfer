@@ -26,6 +26,7 @@
     "mongodb": "^5.1.0",
     "react": "^18.2.0",
     "react-calendar": "^4.0.0",
+    "react-datepicker": "^4.10.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.5",
     "react-router": "^5.2.0",
@@ -77,6 +78,7 @@
   "devDependencies": {
     "@capacitor/cli": "4.7.0",
     "@types/react-calendar": "^3.9.0",
+    "@types/react-datepicker": "^4.10.0",
     "react-app-rewired": "^2.2.1",
     "webpack": "^5.76.1"
   },
