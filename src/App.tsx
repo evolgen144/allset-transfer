@@ -1,45 +1,23 @@
-import React, { useState } from 'react';
-import { Redirect, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
 /* App Pages */
 import LoginPage from "./pages/LoginPage";
-import Main from "./pages/Main";
-import Search from "./pages/Search"
-import Profile from "./pages/Profile"
-import Cal from "./pages/Calendar";
-import Messages from "./pages/Messages";
-import Settings from "./pages/Settings";
+// import Search from "./pages/Search"
+// import Profile from "./pages/Profile"
+// import Cal from "./pages/Calendar";
+// import Messages from "./pages/Messages";
+// import Settings from "./pages/Settings";
 
 
 import {
-  IonHeader,
-  IonToolbar,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonSegment,
-  IonSegmentButton,
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonImg,
-  IonFooter,
   IonApp,
-  IonIcon,
-  IonLabel,
-  IonTextarea,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
   setupIonicReact,
-  IonSplitPane
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { search, person, calendar, chatbox, settings } from 'ionicons/icons';
-import { ellipse, square, triangle, checkmarkOutline, refreshOutline } from 'ionicons/icons';
-import logo from './assets/logo.png';
+// import { search, person, calendar, chatbox, settings } from 'ionicons/icons';
+// import { ellipse, square, triangle, checkmarkOutline, refreshOutline } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -59,9 +37,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
-/* All-Set config */
-import { refresh } from 'ionicons/icons';
 
 import './pages/App.css';
 

@@ -1,5 +1,5 @@
-.custom-logout {
-    --background: #6a77ba;
-    --background-activated: #868eb7;
-    --background-hover: #868eb7;
+.custom-button {
+    --background: #3f439f;
+    --background-activated: #6e7bbd;
+    --background-hover: #6e7bbd;
 }
