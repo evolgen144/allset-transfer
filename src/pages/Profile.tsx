@@ -10,6 +10,8 @@ import {
   IonTitle
 } from '@ionic/react';
 import logo from '../assets/logo.png';
+// import DbCrud from '../components/DbCrud';
+import GetUser from '../components/GetUser';
 
 const Profile: React.FC = () => {
   return(
@@ -21,6 +23,7 @@ const Profile: React.FC = () => {
                       <IonCol size="12" className="ion-text-center colSize">
                       <IonImg src={logo} alt="AllSetLogo" style={{ height: '25%' }}/>
                       <IonTitle>Profile</IonTitle>
+                      <GetUser />
                       </IonCol>
                   </IonRow>
               </IonGrid>

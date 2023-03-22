@@ -49,10 +49,10 @@ const Hire: React.FC = () => {
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
     const positions = ['Director', '1st Assistant Director', 'Director of Photography', 
     'Camera Operator', 'Videographer', 'Steadicam Operator', '1st Assistant', 'Camera', 
-    'Sound Operator', 'Key Grip', 'Gaffer', 'Best Boy Electric', 'Best Boy Grip', 
-    'Photographer', 'Photo Assistant', 'Digitech', 'Producer', 'Production Assistant', 
-    'Production Coordinator', 'Wardrobe Stylist', 'Make Up Artist', 'Hair Stylist', 
-    'Art Director', 'Prop Stylist', 'Video', 'Editor', 'Colorist', 'Sound Mixer'];
+    'Sound Operator', 'Sound Editor', 'Foley Artist', 'Key Grip', 'Gaffer', 'Best Boy Electric',
+    'Best Boy Grip', 'Photographer', 'Photo Assistant', 'Digitech', 'Producer', 'Production Assistant', 
+    'Production Coordinator', 'Wardrobe Stylist', 'Make Up Artist', 'Hair Stylist', 'Art Director',
+    'Prop Stylist', 'Video', 'Editor', 'Colorist', 'Sound Mixer'];
 
     const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
     const [startDate, endDate] = dateRange;
