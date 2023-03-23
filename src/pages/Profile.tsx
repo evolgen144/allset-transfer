@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 import logo from '../assets/logo.png';
 import GetUser from '../components/GetUser';
+import DbCrud from '../components/DbCrud';
 
 const Profile: React.FC = () => {
   return(
