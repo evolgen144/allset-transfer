@@ -9,13 +9,20 @@ import { UserContext } from './UserContext';
 // console.log(user.id)
 
 const DbCrud: React.FC = () => {
+const app = new Realm.App({ id: "all-set-wgyfg" });
 
 
     async function getUserByAuthID(authID: string | null) {
-        const app = new Realm.App({ id: "all-set-wgyfg" });
-        const credentials = Realm.Credentials.anonymous();
+
+        if (app.currentUser) {
+            console.log("User is already logged in:", app.currentUser.id);
+            return;
+        }
+
+        const credentials = Realm.Credentials.emailPassword("adam@a.com", "Abc12345");
         const user = await app.logIn(credentials);
-      
+        console.log("Logged in to Realm as:", user.id);
+        
         const mongodb = user.mongoClient("mongodb-atlas");
         const usersCollection = mongodb.db("ALLSET").collection("Clients");
       
@@ -26,20 +33,17 @@ const DbCrud: React.FC = () => {
     }
 
     let theUser = '';
-    async function doSomethingWithUser(authID: string | null) {
+
+    async function processUser(authID: string | null) {
         const theUser = await getUserByAuthID(authID);
-        console.log(theUser); // logs the user object from MongoDB
+        console.log("The domSomething function returns the user: ", theUser); // logs the user object from MongoDB
     }
     const userId = useContext(UserContext);
-    const userTemp: string | null = userId.userId
-    doSomethingWithUser(userTemp);
-
-
+    processUser(userId.userId);
 
     return (
         <div>{theUser}</div>
     )
-
 }
 
 export default DbCrud
