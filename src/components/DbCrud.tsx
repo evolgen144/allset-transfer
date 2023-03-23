@@ -2,8 +2,6 @@
 import { IonApp } from '@ionic/react';
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
-// import GetUser from './GetUser';
-
 
 // const app = new Realm.App({ id: "all-set-wgyfg" });
 // const credentials = Realm.Credentials.anonymous();

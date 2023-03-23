@@ -10,7 +10,6 @@ import {
   IonTitle
 } from '@ionic/react';
 import logo from '../assets/logo.png';
-// import DbCrud from '../components/DbCrud';
 import GetUser from '../components/GetUser';
 
 const Profile: React.FC = () => {
