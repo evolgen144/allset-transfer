@@ -9,9 +9,11 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+
+// Pages
 import LoginPage from "./pages/LoginPage";
 import Search from "./pages/Search"
-import Profile from "./pages/Profile"
+import Profilex from "./pages/Profilex"
 import Cal from "./pages/Calendar";
 import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
@@ -30,8 +32,8 @@ const Tabs: React.FC = () => (
                     <Route exact path="/Search">
                         <Search />
                     </Route>
-                    <Route exact path="/Profile">
-                        <Profile />
+                    <Route exact path="/Profilex">
+                        <Profilex />
                     </Route>
                     <Route exact path="/Calendar">
                         <Cal />
@@ -49,7 +51,7 @@ const Tabs: React.FC = () => (
                         <IonIcon icon={search} />
                         <IonLabel>Search</IonLabel>
                     </IonTabButton>
-                    <IonTabButton tab="Profile" href="/Profile">
+                    <IonTabButton tab="Profilex" href="/Profilex">
                         <IonIcon icon={person} />
                         <IonLabel>Profile</IonLabel>
                     </IonTabButton>

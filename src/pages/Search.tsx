@@ -10,7 +10,7 @@ import {
     IonImg,
     IonPage,
     IonLabel,
-    setupIonicReact
+    // setupIonicReact
   } from '@ionic/react';
 import logo from '../assets/logo.png';
 
@@ -50,7 +50,7 @@ import React, { useState } from 'react';
 // const user = await app.logIn(credentials);
 // console.log(user.id)
 
-setupIonicReact();
+// setupIonicReact();
 
 const Search: React.FC = () => {
   
@@ -58,6 +58,7 @@ const Search: React.FC = () => {
   
       return(
           <IonPage>
+            {/* <GetUser /> */}
               <IonHeader className="as_header">
                   <IonToolbar className="as_toolbar">
                       <IonGrid className="as_grid">

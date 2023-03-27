@@ -1,11 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
 /* Auth0 */
 import { Auth0Provider } from '@auth0/auth0-react';
+import GetUser from './components/GetUser';
+
 const domain = process.env.REACT_APP_AUTH0_DOMAIN!;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID!;
 
@@ -21,7 +23,7 @@ root.render(
     }}
   >
     <React.StrictMode>
-      <App />
+      <GetUser />
     </React.StrictMode>
   </Auth0Provider>
 );
