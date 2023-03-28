@@ -30,15 +30,87 @@ import logo from '../assets/logo.png';
 
 
 
-import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline } from "ionicons/icons";
+import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline, personOutline } from "ionicons/icons";
+
+
+/* Interfaces */
+interface ClientInfo {
+	firstName: string;
+	lastName: string;
+	email: string;
+	location: string;
+}
+
+interface Reviews {
+	[key: number]: string;
+}
+
+interface PastWork {
+	[key: number]: string;
+}
+
+interface Bio {
+	about: string;
+	pastWork: PastWork;
+	reviews: Reviews;
+}
+
+interface JobPost {
+	Title: string;
+	Date: string;
+	Description: string;
+}
+
+interface Postings {
+	[key: string]: JobPost;
+}
+
+interface User {
+	_id: {
+		$oid: string;
+	};
+	authID: string;
+	clientInfo: ClientInfo;
+	Position: string;
+	bio: Bio;
+	postings: Postings;
+}
+
+
 
 const Profilex: React.FC = () => {
 	const currentUser = useContext(UserDataContext);
 	const avatar = require(`../assets/${currentUser?.clientInfo.firstName}.png`);
+	console.log('User name:', currentUser?.clientInfo.firstName)
+
+
+
+	/* Experiment */
+	const getAllPastWork = (currentUser: User): string[] => {
+		return Object.values(currentUser!.bio.pastWork);
+	};
+	
+	// const pastWorkArray: PastWork[] = getAllPastWork(currentUser);
+	const pastWorkTitles: string[] = getAllPastWork(currentUser!);
+	console.log(pastWorkTitles)
+
+	const renderPastWorkCards = (pastWorkTitles: string[]): JSX.Element[] => {
+		return pastWorkTitles.map((title, index) => (
+		  <IonCard key={index}>
+			<IonCardHeader>
+			  <p>{title}</p>
+			</IonCardHeader>
+		  </IonCard>
+		));
+	  };
+
+
+
+
 
 	return (
 		<IonPage className={ 'home' }>
-			<IonHeader className="as_header">
+			{/* <IonHeader className="as_header">
         		<IonToolbar className="as_toolbar">
 					<IonGrid className="as_grid">
 						<IonRow>
@@ -49,13 +121,13 @@ const Profilex: React.FC = () => {
 						</IonRow>
 					</IonGrid>
 				</IonToolbar>
-			</IonHeader>
+			</IonHeader> */}
 			<IonContent>
 
 				<div className='topHeader'></div>
 
 				<IonGrid>
-					<IonRow className="ion-justify-content-center">
+					<IonRow className="ion-justify-content-center as_margins">
 						<IonCol size="12" className="ion-justify-content-center ion-align-items-center ion-text-center">
 							<IonCard className='profileHeader'>
 
@@ -70,15 +142,16 @@ const Profilex: React.FC = () => {
 											<IonRow className='profileInfo'>
 												<IonCol size="12">
 													<IonText color="dark" className='profileName'>
-														<p>{currentUser?.clientInfo.firstName}, {currentUser?.clientInfo.lastName}</p>
+														<p>{currentUser?.clientInfo.firstName} {currentUser?.clientInfo.lastName}</p>
 													</IonText>
 													<IonText color="medium">
 														<p>{currentUser?.Position}</p>
+														<p>{currentUser?.clientInfo.location}</p>
 													</IonText>
 												</IonCol>
 											</IonRow>
 
-											<IonRow className='profileStats'>
+											{/* <IonRow className='profileStats'>
 
 												<IonCol className='profileStat'>
 													
@@ -91,8 +164,8 @@ const Profilex: React.FC = () => {
 													<IonCardTitle>1.2k</IonCardTitle>
 													<IonCardSubtitle>Followers</IonCardSubtitle>
 												</IonCol>
-											</IonRow>
-										</IonCol>
+											</IonRow> */}
+										{/* </IonCol>
 									</IonRow>
 
 									<IonRow>
@@ -106,69 +179,56 @@ const Profilex: React.FC = () => {
 											<IonButton color="primary" expand="block">
 												<IonIcon icon={ personAddOutline } size="small" />&nbsp;
 												Follow
-											</IonButton>
+											</IonButton> */}
 										</IonCol>
-									</IonRow>
+									</IonRow> 
 								</IonCardContent>
 							</IonCard>
 						</IonCol>
 					</IonRow>
 
-					<IonRow className='profileStatusContainer'>
+					<IonRow className='profileActionContainer as_margins'>
 						<IonCol size="12">
 							<IonCard className='profileCard'>
 
 								<IonCardHeader>
 									<IonRow className='profileStatus'>
-										<IonIcon icon={ chatboxEllipsesOutline } />
-										<IonCardSubtitle>Status</IonCardSubtitle>
+										<IonCardSubtitle>Bio</IonCardSubtitle>
 									</IonRow>
 								</IonCardHeader>
 								<IonCardContent>
 									<IonText>
-										<p>{currentUser?.bio.about}</p>
+										{/* <p>{currentUser?.bio.about}</p> */}
 									</IonText>
 								</IonCardContent>
 							</IonCard>
 						</IonCol>
 					</IonRow>
 
-					<IonRow>
-						<IonCol size="6">
-							<IonCard className='profileCard'>
-								<IonCardContent>
-									<IonIcon icon={ imageOutline } />
-									<IonCardTitle>147</IonCardTitle>
-									<IonCardSubtitle>Photos</IonCardSubtitle>
-								</IonCardContent>
-							</IonCard>
-						</IonCol>
-
-						<IonCol size="6">
-							<IonCard className='profileCard'>
-								<IonCardContent>
-									<IonIcon icon={ bookmarkOutline } />
-									<IonCardTitle>63</IonCardTitle>
-									<IonCardSubtitle>Bookmarks</IonCardSubtitle>
-								</IonCardContent>
-							</IonCard>
+					<IonRow className='profileActionContainer as_margins'>
+						<IonCol size="12">
+							{renderPastWorkCards(pastWorkTitles)}
 						</IonCol>
 					</IonRow>
 
-					<IonRow className='profileActionContainer'>
+					<IonRow className='profileActionContainer as_margins'>
 						<IonCol size="12">
 							<IonCard className='profileActionCard'>
-								<IonCardContent>
-									<IonRow className="ion-justify-content-between">
-										<IonCardSubtitle>{currentUser?.bio.pastWork}</IonCardSubtitle>
-										<IonIcon icon={ arrowForward } />
+								<IonCardHeader>
+									<IonRow className='profileStatus'>
+										<IonCardSubtitle>Reviews</IonCardSubtitle>
 									</IonRow>
+								</IonCardHeader>
+								<IonCardContent>
+									<IonText>
+										{/* <p>{currentUser?.bio.reviews}</p> */}
+									</IonText>
 								</IonCardContent>
 							</IonCard>
 						</IonCol>
 					</IonRow>
+
 				</IonGrid>
-				
 			</IonContent>
 		</IonPage>
 	);

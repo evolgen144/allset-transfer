@@ -10,7 +10,6 @@ import {
     IonImg,
     IonPage,
     IonLabel,
-    // setupIonicReact
   } from '@ionic/react';
 import logo from '../assets/logo.png';
 
@@ -43,22 +42,12 @@ import '../theme/variables.css';
 /* All-Set config */
 import React, { useState } from 'react';
 
-/* MongoDB */
-// import * as Realm from "realm-web";
-// const app = new Realm.App({ id: "all-set-wgyfg" });
-// const credentials = Realm.Credentials.anonymous();
-// const user = await app.logIn(credentials);
-// console.log(user.id)
-
-// setupIonicReact();
-
 const Search: React.FC = () => {
   
       const [selectedSegment, setSelectedSegment] = useState('Hire');
   
       return(
           <IonPage>
-            {/* <GetUser /> */}
               <IonHeader className="as_header">
                   <IonToolbar className="as_toolbar">
                       <IonGrid className="as_grid">

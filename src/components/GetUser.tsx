@@ -24,5 +24,5 @@ const GetUser: React.FC = () => {
   )
 };
 
-// export const exportedUserId = userId;
+
 export default GetUser

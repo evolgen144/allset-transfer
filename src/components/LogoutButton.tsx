@@ -16,7 +16,7 @@ const LogoutButton: React.FC = () => {
   }
     
   async function logMeOut() {
-    console.log("******The user is: ", app.currentUser)
+    // console.log("******The user is: ", app.currentUser)
 
     /* Realm logout */
     try {

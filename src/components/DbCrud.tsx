@@ -4,34 +4,52 @@ import { UserContext } from './UserContext'; // Make sure to import the correct 
 import UserDataContext from './UserDataContext';
 import App from '../App'
 
+/* Interfaces */
 interface ClientInfo {
-    firstName: string;
-    lastName: string;
-    email: string;
-    location: string;
-  }
-  
-interface Bio {
-    about: string;
-    pastWork: string;
-    reviews: string;
-  }
-  
-interface User {
-    _id: {
-      $oid: string;
-    };
-    authID: string;
-    clientInfo: ClientInfo;
-    Position: string;
-    bio: Bio;
+  firstName: string;
+  lastName: string;
+  email: string;
+  location: string;
 }
 
+interface Reviews {
+  [key: string]: string;
+}
+
+interface PastWork {
+  [key: string]: string;
+}
+
+interface Bio {
+  about: string;
+  pastWork: PastWork;
+  reviews: Reviews;
+}
+
+interface JobPost {
+  Title: string;
+  Date: string;
+  Description: string;
+}
+
+interface Postings {
+  [key: string]: JobPost;
+}
+
+interface User {
+  _id: {
+    $oid: string;
+  };
+  authID: string;
+  clientInfo: ClientInfo;
+  Position: string;
+  bio: Bio;
+  postings: Postings;
+}
 
 const DbCrud: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const userId = useContext(UserContext);
-//   const context = useContext(UserDataContext);
 
   const app = new Realm.App({ id: "all-set-wgyfg"});
 
@@ -63,7 +81,6 @@ const DbCrud: React.FC = () => {
     async function processUser(authID: string | null) {
       const user = await getUserByAuthID(authID);
       setCurrentUser(user);
-    //   console.log('The final user info: ', user.clientInfo.firstName); 
     }
 
     if (userId.userId) {
