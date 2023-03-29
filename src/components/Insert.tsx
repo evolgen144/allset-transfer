@@ -1,10 +1,15 @@
 import Crud, { authenticateUser } from "./Crud";
 
+
 export interface JobOffer {
-  auth0Id: string;
-  title: string;
-  description: string;
-  // other fields as needed
+  auth0Id: string | undefined;
+  projectName: string;
+  position: string[];
+  budget: string;
+  location: string;
+  details: string;
+  startDate: Date | null;
+  endDate: Date | null;
 }
 
 export async function insertJobOffer(jobOffer: JobOffer): Promise<boolean> {
@@ -23,7 +28,7 @@ export async function insertJobOffer(jobOffer: JobOffer): Promise<boolean> {
       return false;
     }
   } catch (error) {
-    console.error("Error inserting job offer:", error);
+    console.error("Error inserting authenticating or possibly inserting job offer:", error);
     return false;
   }
 }

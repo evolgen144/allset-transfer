@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     IonGrid,
     IonRow,
@@ -14,15 +14,14 @@ import {
     IonSelect,
     IonSelectOption
   } from '@ionic/react';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 import './Hire.css';
-
 /* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
-
 /* Optional CSS utils that can be commented out */
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/float-elements.css';
@@ -30,10 +29,8 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
 /* Theme variables */
 import '../theme/variables.css';
-
 /* All-Set config */
 import { refresh } from 'ionicons/icons';
 
@@ -42,11 +39,17 @@ import { refresh } from 'ionicons/icons';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+/* Get User Auth0 id */
+import UserDataContext from '../components/UserDataContext';
+
 /* Get job insert */
 import { JobOffer, insertJobOffer } from '../components/Insert';
 
 const Hire: React.FC = () => {
     const [ProjectName, setProjecttName] = useState<string>('');
+    
+    /* Get User Auth0 id */
+    const auth0ident: string | undefined = useContext(UserDataContext)?.authID;
 
     /* Position lists */
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -57,34 +60,36 @@ const Hire: React.FC = () => {
     'Production Coordinator', 'Wardrobe Stylist', 'Make Up Artist', 'Hair Stylist', 'Art Director',
     'Prop Stylist', 'Video', 'Editor', 'Colorist', 'Sound Mixer'];
 
+    /* Setting of other Job details */
     const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
     const [startDate, endDate] = dateRange;
     const [Budget, setBudget] = useState<string>('');
     const [Location, setLocation] = useState<string>('');
     const [Details, setDetails] = useState<string>('');
     
+    /* Submission of form */
     const pressSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         // console.log(ProjectName, selectedItems, Budget, Location, dateRange, Details);
 
         /* Job posting Experiment */
         const jobOffer: JobOffer = {
-            auth0Id: "THE FAKE",
-            title: 'The title',
-            description: 'The Description'
+            auth0Id: auth0ident,
+            projectName: ProjectName,
+            position: selectedItems,
+            budget: Budget,
+            location: Location,
+            details: Details,
+            startDate: startDate,
+            endDate: endDate
         }
-
+        /* Posting of job */
         const success = insertJobOffer(jobOffer);
-        //     if (success) {
-        //     // Show a success message or navigate to another page
-        //     } else {
-        //     // Show an error message
-        //     }
+
+        // Insert success alert after job posted
+        
         };
 
-    /* Date Range */
-    // const [dateRange, setDateRange] = useState([null, null]);
-    // const [startDate, endDate] = dateRange;
 
     const handleReset = (): void => {
       setProjecttName('');

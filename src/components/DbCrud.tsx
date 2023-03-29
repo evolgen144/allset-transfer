@@ -8,47 +8,6 @@ import App from '../App'
 /* Interfaces */
 import { ClientInfo, Reviews, Bio, JobPost, Postings, User } from '../typeInterfaces'
 
-// interface ClientInfo {
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-//   location: string;
-// }
-
-// interface Reviews {
-//   [key: string]: string;
-// }
-
-// interface PastWork {
-//   [key: string]: string;
-// }
-
-// interface Bio {
-//   about: string;
-//   pastWork: PastWork;
-//   reviews: Reviews;
-// }
-
-// interface JobPost {
-//   Title: string;
-//   Date: string;
-//   Description: string;
-// }
-
-// interface Postings {
-//   [key: string]: JobPost;
-// }
-
-// interface User {
-//   _id: {
-//     $oid: string;
-//   };
-//   authID: string;
-//   clientInfo: ClientInfo;
-//   Position: string;
-//   bio: Bio;
-//   postings: Postings;
-// }
 
 const DbCrud: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);

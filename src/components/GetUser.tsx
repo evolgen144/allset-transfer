@@ -17,11 +17,10 @@ const GetUser: React.FC = () => {
     }
 
   }, [isAuthenticated, user, getAccessTokenSilently]);
-  
+
   return (
     <UserContext.Provider value={{ userId }}>
       <DbCrud />
-      {/* <Crud /> */}
     </UserContext.Provider>  
   )
 };
