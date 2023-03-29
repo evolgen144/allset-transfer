@@ -4,48 +4,51 @@ import { UserContext } from './UserContext'; // Make sure to import the correct 
 import UserDataContext from './UserDataContext';
 import App from '../App'
 
+
 /* Interfaces */
-interface ClientInfo {
-  firstName: string;
-  lastName: string;
-  email: string;
-  location: string;
-}
+import { ClientInfo, Reviews, Bio, JobPost, Postings, User } from '../typeInterfaces'
 
-interface Reviews {
-  [key: string]: string;
-}
+// interface ClientInfo {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   location: string;
+// }
 
-interface PastWork {
-  [key: string]: string;
-}
+// interface Reviews {
+//   [key: string]: string;
+// }
 
-interface Bio {
-  about: string;
-  pastWork: PastWork;
-  reviews: Reviews;
-}
+// interface PastWork {
+//   [key: string]: string;
+// }
 
-interface JobPost {
-  Title: string;
-  Date: string;
-  Description: string;
-}
+// interface Bio {
+//   about: string;
+//   pastWork: PastWork;
+//   reviews: Reviews;
+// }
 
-interface Postings {
-  [key: string]: JobPost;
-}
+// interface JobPost {
+//   Title: string;
+//   Date: string;
+//   Description: string;
+// }
 
-interface User {
-  _id: {
-    $oid: string;
-  };
-  authID: string;
-  clientInfo: ClientInfo;
-  Position: string;
-  bio: Bio;
-  postings: Postings;
-}
+// interface Postings {
+//   [key: string]: JobPost;
+// }
+
+// interface User {
+//   _id: {
+//     $oid: string;
+//   };
+//   authID: string;
+//   clientInfo: ClientInfo;
+//   Position: string;
+//   bio: Bio;
+//   postings: Postings;
+// }
 
 const DbCrud: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -59,9 +62,9 @@ const DbCrud: React.FC = () => {
     }
 
     // Replace the placeholders with your actual email and password for Realm
-    const credentials = Realm.Credentials.emailPassword("adam@a.com", "Abc12345");
+    const credentials = Realm.Credentials.emailPassword("adam@a.com", "Abc12345"); // ****** change user only adfam makes queries
     try {
-      const user = await app.logIn(credentials);
+      const user = await app.logIn(credentials);  // USER
       console.log('Logged in to Realm as:', user.id);
 
       const mongodb = user.mongoClient('mongodb-atlas');

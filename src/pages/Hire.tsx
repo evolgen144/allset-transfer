@@ -42,6 +42,9 @@ import { refresh } from 'ionicons/icons';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+/* Get job insert */
+import { JobOffer, insertJobOffer } from '../components/Insert';
+
 const Hire: React.FC = () => {
     const [ProjectName, setProjecttName] = useState<string>('');
 
@@ -56,16 +59,28 @@ const Hire: React.FC = () => {
 
     const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
     const [startDate, endDate] = dateRange;
-
-
     const [Budget, setBudget] = useState<string>('');
     const [Location, setLocation] = useState<string>('');
     const [Details, setDetails] = useState<string>('');
     
     const pressSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-      e.preventDefault();
-      console.log(ProjectName, selectedItems, Budget, Location, dateRange, Details);
-    }
+        e.preventDefault();
+        // console.log(ProjectName, selectedItems, Budget, Location, dateRange, Details);
+
+        /* Job posting Experiment */
+        const jobOffer: JobOffer = {
+            auth0Id: "THE FAKE",
+            title: 'The title',
+            description: 'The Description'
+        }
+
+        const success = insertJobOffer(jobOffer);
+        //     if (success) {
+        //     // Show a success message or navigate to another page
+        //     } else {
+        //     // Show an error message
+        //     }
+        };
 
     /* Date Range */
     // const [dateRange, setDateRange] = useState([null, null]);

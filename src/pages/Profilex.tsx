@@ -28,54 +28,8 @@ import UserDataContext from '../components/UserDataContext';
 /* Logo */
 import logo from '../assets/logo.png';
 
-
-
 import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline, personOutline } from "ionicons/icons";
-
-
-/* Interfaces */
-interface ClientInfo {
-	firstName: string;
-	lastName: string;
-	email: string;
-	location: string;
-}
-
-interface Reviews {
-	[key: number]: string;
-}
-
-interface PastWork {
-	[key: number]: string;
-}
-
-interface Bio {
-	about: string;
-	pastWork: PastWork;
-	reviews: Reviews;
-}
-
-interface JobPost {
-	Title: string;
-	Date: string;
-	Description: string;
-}
-
-interface Postings {
-	[key: string]: JobPost;
-}
-
-interface User {
-	_id: {
-		$oid: string;
-	};
-	authID: string;
-	clientInfo: ClientInfo;
-	Position: string;
-	bio: Bio;
-	postings: Postings;
-}
-
+import { ClientInfo, Reviews, Bio, JobPost, Postings, User } from '../typeInterfaces'
 
 
 const Profilex: React.FC = () => {
@@ -103,9 +57,6 @@ const Profilex: React.FC = () => {
 		  </IonCard>
 		));
 	  };
-
-
-
 
 
 	return (

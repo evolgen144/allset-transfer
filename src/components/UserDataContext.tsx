@@ -42,10 +42,6 @@ interface User {
   bio: Bio;
   postings: Postings;
 }
-
-// type UserDataContextType = {
-//     currentUser: User | null;
-// };
   
 const UserDataContext = React.createContext<User | null>(null);
 export default UserDataContext;
