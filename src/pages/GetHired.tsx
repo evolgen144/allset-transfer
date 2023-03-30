@@ -8,7 +8,6 @@ import {
     IonCardContent, 
     IonCardHeader, 
     IonCardSubtitle,
-    IonDatetime,
     IonCardTitle
   } from '@ionic/react';
 
@@ -62,7 +61,6 @@ const Hire: React.FC = () => {
       setShowModal(false);
     };
 
-    // };
 
     return (
       <IonPage>
@@ -70,12 +68,11 @@ const Hire: React.FC = () => {
           {jobs.map((job) => (
             <IonCard key={job.projectName} onClick={() => handleCardClick(job)}>
               <IonCardHeader>
-                <IonCardSubtitle>{/* Add subtitle if needed */}</IonCardSubtitle>
-                <IonCardTitle>{job.projectName}</IonCardTitle>
+                <IonCardTitle className='title'>{job.projectName}</IonCardTitle>
+                <IonCardSubtitle className='positions'>{job.position.join(' | ')}</IonCardSubtitle>
               </IonCardHeader>
-              <IonCardContent>
-                {job.details}
-                {/* Display other fields as needed */}
+              <IonCardContent className='firstCard'>
+                {job.details.length > 100 ? job.details.slice(0, 100) + '...' : job.details}
               </IonCardContent>
             </IonCard>
           ))}
@@ -86,14 +83,14 @@ const Hire: React.FC = () => {
               <>
                 <IonCard>
                   <IonCardHeader>
-                    <IonCardSubtitle>{/* Add subtitle if needed */}</IonCardSubtitle>
                     <IonCardTitle className='title'>{selectedJob.projectName}</IonCardTitle>
+                    <IonCardSubtitle>{/* Add subtitle if needed */}</IonCardSubtitle>
                   </IonCardHeader>
                   <IonCardContent>
                     <h1>Details</h1>
                     <p>{selectedJob.details}</p>
                     <h1>Roles needed</h1>
-                    <p>{selectedJob.position}</p>
+                    <p>{selectedJob.position.join(' | ')}</p>
                     <h1>Budget</h1>
                     <p>{selectedJob.budget}</p>
                     <h1>Location</h1>
@@ -103,10 +100,10 @@ const Hire: React.FC = () => {
                     <p>End Date: {new Date(selectedJob.endDate!).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                   </IonCardContent>
                 </IonCard>
-                <IonButton expand="block" onClick={handleApply}>
+                <IonButton className="custom-button" expand="full" onClick={handleApply}>
                   Apply
                 </IonButton>
-                <IonButton expand="block" fill="outline" onClick={() => setShowModal(false)}>
+                <IonButton className="custom-button" expand="full" fill="outline" onClick={() => setShowModal(false)}>
                   Close
                 </IonButton>
               </>

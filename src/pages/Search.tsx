@@ -44,7 +44,7 @@ import React, { useState } from 'react';
 
 const Search: React.FC = () => {
   
-      const [selectedSegment, setSelectedSegment] = useState('Hire');
+      const [selectedSegment, setSelectedSegment] = useState('GetHired');
   
       return(
           <IonPage>
@@ -58,11 +58,11 @@ const Search: React.FC = () => {
                           </IonRow>
                           <IonRow>
                               <IonSegment className="full-width-segment" value={selectedSegment} onIonChange={(e) => setSelectedSegment(e.detail.value as string)} >
+                                    <IonSegmentButton value="GetHired">
+                                      <IonLabel class="as_topNavButton">GET HIRED</IonLabel>
+                                  </IonSegmentButton>
                                   <IonSegmentButton value="Hire">
                                       <IonLabel class="as_topNavButton">HIRE</IonLabel>
-                                  </IonSegmentButton>
-                                  <IonSegmentButton value="GetHired">
-                                      <IonLabel class="as_topNavButton">GET HIRED</IonLabel>
                                   </IonSegmentButton>
                               </IonSegment>
                           </IonRow>

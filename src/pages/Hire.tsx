@@ -48,6 +48,7 @@ import { Job, insertJobOffer } from '../components/CrudOperations';
 const Hire: React.FC = () => {
     const [ProjectName, setProjecttName] = useState<string>('');
     
+    
     /* Get User Auth0 id */
     const auth0ident: string | undefined = useContext(UserDataContext)?.authID;
 
@@ -85,6 +86,7 @@ const Hire: React.FC = () => {
         }
         /* Posting of job */
         const success = insertJobOffer(jobOffer);
+        handleReset()
 
         // Insert success alert after job posted
         
