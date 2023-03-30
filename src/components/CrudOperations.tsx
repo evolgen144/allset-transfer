@@ -1,7 +1,7 @@
 import Crud, { authenticateUser } from "./Crud";
 
-
-export interface JobOffer {
+export interface Job {
+  // _id: string[] | null;
   auth0Id: string | undefined;
   projectName: string;
   position: string[];
@@ -12,7 +12,8 @@ export interface JobOffer {
   endDate: Date | null;
 }
 
-export async function insertJobOffer(jobOffer: JobOffer): Promise<boolean> {
+/* Insert a Job offer */
+export async function insertJobOffer(jobOffer: Job): Promise<boolean> {
   try {
     const user = await authenticateUser("adam@a.com", "Abc12345");
     if (!user) throw new Error("User authentication failed");
@@ -31,4 +32,15 @@ export async function insertJobOffer(jobOffer: JobOffer): Promise<boolean> {
     console.error("Error inserting authenticating or possibly inserting job offer:", error);
     return false;
   }
+}
+
+/* Get a list of all job offers */
+export async function listAllJobOffers(): Promise<Job[]> {
+  // try {
+    const user = await authenticateUser("adam@a.com", "Abc12345");
+    if (!user) throw new Error("User authentication failed");
+
+    const listAllJobsFunction = Crud.currentUser?.functions.listAllJobOffers;
+    const result = await listAllJobsFunction!();
+    return result
 }

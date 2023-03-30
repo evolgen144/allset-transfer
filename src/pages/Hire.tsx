@@ -43,7 +43,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import UserDataContext from '../components/UserDataContext';
 
 /* Get job insert */
-import { JobOffer, insertJobOffer } from '../components/Insert';
+import { Job, insertJobOffer } from '../components/CrudOperations';
 
 const Hire: React.FC = () => {
     const [ProjectName, setProjecttName] = useState<string>('');
@@ -73,7 +73,7 @@ const Hire: React.FC = () => {
         // console.log(ProjectName, selectedItems, Budget, Location, dateRange, Details);
 
         /* Job posting Experiment */
-        const jobOffer: JobOffer = {
+        const jobOffer: Job = {
             auth0Id: auth0ident,
             projectName: ProjectName,
             position: selectedItems,
