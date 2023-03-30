@@ -43,10 +43,16 @@ const Profilex: React.FC = () => {
 	const getAllPastWork = (currentUser: User): string[] => {
 		return Object.values(currentUser!.bio.pastWork);
 	};
+
+		/* Experiment */
+		const getAllReviews = (currentUser: User): string[] => {
+			return Object.values(currentUser!.bio.reviews);
+		};
 	
 	// const pastWorkArray: PastWork[] = getAllPastWork(currentUser);
 	const pastWorkTitles: string[] = getAllPastWork(currentUser!);
-	console.log(pastWorkTitles)
+	const reviewTitles: string[] = getAllReviews(currentUser!);
+	
 
 	const renderPastWorkCards = (pastWorkTitles: string[]): JSX.Element[] => {
 		return pastWorkTitles.map((title, index) => (
@@ -149,7 +155,7 @@ const Profilex: React.FC = () => {
 								</IonCardHeader>
 								<IonCardContent>
 									<IonText>
-										{/* <p>{currentUser?.bio.about}</p> */}
+										<p>{currentUser?.bio.about}</p>
 									</IonText>
 								</IonCardContent>
 							</IonCard>
@@ -158,13 +164,24 @@ const Profilex: React.FC = () => {
 
 					<IonRow className='profileActionContainer as_margins'>
 						<IonCol size="12">
-							{renderPastWorkCards(pastWorkTitles)}
+						<IonCard className='profileCard'>
+							<IonCardHeader>
+								<IonRow className='profileStatus'>
+									<IonCardSubtitle>Past Work</IonCardSubtitle>
+								</IonRow>
+							</IonCardHeader>
+							<IonCardContent>
+								<IonText>
+									<p>{pastWorkTitles.join(' \n\n ')}</p>
+								</IonText>
+							</IonCardContent>
+						</IonCard>
 						</IonCol>
 					</IonRow>
 
 					<IonRow className='profileActionContainer as_margins'>
 						<IonCol size="12">
-							<IonCard className='profileActionCard'>
+							<IonCard className='profileCard'>
 								<IonCardHeader>
 									<IonRow className='profileStatus'>
 										<IonCardSubtitle>Reviews</IonCardSubtitle>
@@ -172,7 +189,7 @@ const Profilex: React.FC = () => {
 								</IonCardHeader>
 								<IonCardContent>
 									<IonText>
-										{/* <p>{currentUser?.bio.reviews}</p> */}
+										<p>{reviewTitles}</p>
 									</IonText>
 								</IonCardContent>
 							</IonCard>

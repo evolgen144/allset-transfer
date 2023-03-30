@@ -4,11 +4,15 @@
 .positions {
     font-size: 10px!important;
 }
-.title {
+.titlea {
     color: #40449f;
     font-size: 18px!important;
 }
 
+.titleb {
+    color: #40449f;
+    font-size: 30px!important;
+}
 h1 {
     color: #40449f;
     font-size: 15px!important;

@@ -68,7 +68,7 @@ const Hire: React.FC = () => {
           {jobs.map((job) => (
             <IonCard key={job.projectName} onClick={() => handleCardClick(job)}>
               <IonCardHeader>
-                <IonCardTitle className='title'>{job.projectName}</IonCardTitle>
+                <IonCardTitle className='titlea'>{job.projectName}</IonCardTitle>
                 <IonCardSubtitle className='positions'>{job.position.join(' | ')}</IonCardSubtitle>
               </IonCardHeader>
               <IonCardContent className='firstCard'>
@@ -83,7 +83,7 @@ const Hire: React.FC = () => {
               <>
                 <IonCard>
                   <IonCardHeader>
-                    <IonCardTitle className='title'>{selectedJob.projectName}</IonCardTitle>
+                    <IonCardTitle className='titleb'>{selectedJob.projectName}</IonCardTitle>
                     <IonCardSubtitle>{/* Add subtitle if needed */}</IonCardSubtitle>
                   </IonCardHeader>
                   <IonCardContent>
@@ -103,7 +103,7 @@ const Hire: React.FC = () => {
                 <IonButton className="custom-button" expand="full" onClick={handleApply}>
                   Apply
                 </IonButton>
-                <IonButton className="custom-button" expand="full" fill="outline" onClick={() => setShowModal(false)}>
+                <IonButton className="custom-button" expand="full" onClick={() => setShowModal(false)}>
                   Close
                 </IonButton>
               </>
