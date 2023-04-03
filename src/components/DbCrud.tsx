@@ -31,11 +31,16 @@ const DbCrud: React.FC = () => {
 
       const query = { authID };
       const result = await usersCollection.findOne(query);
+      
+      // if (result === null) {
+      //   console.log('********************** RESULT *******************:', result)
+
+      // }
+      
 
       return result;
     } catch (error) {
       console.error('Error logging in or fetching data from MongoDB:', error);
-      return null;
     }
   }
 
@@ -48,6 +53,7 @@ const DbCrud: React.FC = () => {
     if (userId.userId) {
       processUser(userId.userId);
     }
+    
   }, [userId]);
 
   return (

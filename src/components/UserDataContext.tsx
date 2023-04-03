@@ -33,15 +33,15 @@ interface Postings {
 }
 
 interface User {
-  _id: {
-    $oid: string;
-  };
+  // _id: {
+  //   $oid: string;
+  // };
   authID: string;
   clientInfo: ClientInfo;
   Position: string;
   bio: Bio;
   postings: Postings;
 }
-  
+
 const UserDataContext = React.createContext<User | null>(null);
 export default UserDataContext;

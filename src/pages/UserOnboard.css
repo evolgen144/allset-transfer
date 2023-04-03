@@ -1,0 +1,36 @@
+.select-placeholder {
+    --placeholder-color: rgb(0, 0, 0);
+    --placeholder-opacity: 1;
+}
+
+.itemsHeight {
+    --min-height: 68px;
+}
+
+.selectHeight {
+    --padding-top: 34px;
+}
+
+.custom-button {
+    --background: #3f439f;
+    --background-activated: #6e7bbd;
+    --background-hover: #6e7bbd;
+}
+
+
+/* DatePickerStyles.css */
+.react-datepicker__input-container input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+  }
+
+.react-datepicker__input-container input::placeholder  {
+border: none;
+outline: none;
+box-shadow: none;
+color: rgb(0, 0, 0);
+opacity: 1;
+}

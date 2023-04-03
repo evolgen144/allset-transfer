@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { UserContext } from './UserContext';
 import DbCrud from './DbCrud';
-import Crud from './Crud';
 
 
 
@@ -25,5 +24,4 @@ const GetUser: React.FC = () => {
   )
 };
 
-// export const exportedUserId = userId;
 export default GetUser

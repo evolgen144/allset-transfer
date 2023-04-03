@@ -17,11 +17,12 @@ import Profilex from "./pages/Profilex"
 import Cal from "./pages/Calendar";
 import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
+import UserOnboard from "./pages/UserOnboard";
 import { search, person, calendar, chatbox, settings } from 'ionicons/icons';
 
 
 const Tabs: React.FC = () => (
-  <IonContent>
+    <IonContent>
         <IonReactRouter>
             <IonTabs>
                 <IonRouterOutlet>
@@ -43,6 +44,9 @@ const Tabs: React.FC = () => (
                     </Route>
                     <Route exact path="/Settings">
                         <Settings />
+                    </Route>
+                    <Route exact path="/UserOnboard">
+                        <UserOnboard />
                     </Route>
                 </IonRouterOutlet>
 
@@ -70,7 +74,7 @@ const Tabs: React.FC = () => (
                 </IonTabBar>
             </IonTabs>
         </IonReactRouter>
-  </IonContent>
+    </IonContent>
 );
 
 export default Tabs;

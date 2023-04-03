@@ -1,4 +1,5 @@
 import Crud, { authenticateUser } from "./Crud";
+import { ClientInfo, Reviews, Bio, JobPost, Postings, User } from '../typeInterfaces'
 
 export interface Job {
   // _id: string[] | null;
@@ -28,7 +29,7 @@ export async function insertJobOffer(jobOffer: Job): Promise<boolean> {
       console.error("Error inserting job offer:", result);
       return false;
     }
-  } catch (error) {
+    } catch (error) {
     console.error("Error inserting authenticating or possibly inserting job offer:", error);
     return false;
   }
@@ -43,4 +44,22 @@ export async function listAllJobOffers(): Promise<Job[]> {
     const listAllJobsFunction = Crud.currentUser?.functions.listAllJobOffers;
     const result = await listAllJobsFunction!();
     return result
+}
+
+
+/* Insert a new user */
+
+export async function insertNewUser(newUser: User): Promise<boolean> {
+
+  const addNewUserFunction = Crud.currentUser?.functions.insertNewUser;
+  const result = await addNewUserFunction!(newUser);
+
+  if (result.insertedId) {
+    console.log("New User inserted successfully:", result.insertedId);
+    return true;
+  } else {
+    console.error("Error inserting New User:", result);
+    return false;
+  }
+
 }

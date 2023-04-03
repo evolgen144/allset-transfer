@@ -31,9 +31,9 @@ export interface Postings {
 }
 
 export interface User {
-	_id: {
-		$oid: string;
-	};
+	// _id: {
+	// 	$oid: string;
+	// };
 	authID: string;
 	clientInfo: ClientInfo;
 	Position: string;
