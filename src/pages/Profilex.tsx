@@ -44,10 +44,10 @@ const Profilex: React.FC = () => {
 		return Object.values(currentUser!.bio.pastWork);
 	};
 
-		/* Experiment */
-		const getAllReviews = (currentUser: User): string[] => {
-			return Object.values(currentUser!.bio.reviews);
-		};
+	/* Experiment */
+	const getAllReviews = (currentUser: User): string[] => {
+		return Object.values(currentUser!.bio.reviews);
+	};
 	
 	// const pastWorkArray: PastWork[] = getAllPastWork(currentUser);
 	const pastWorkTitles: string[] = getAllPastWork(currentUser!);

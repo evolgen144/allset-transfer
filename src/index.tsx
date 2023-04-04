@@ -18,7 +18,7 @@ root.render(
     domain={domain}
     clientId={clientId}
     authorizationParams={{
-      redirect_uri: 'http://localhost:8100/Search'
+      redirect_uri: 'http://localhost:8100/UserOnboard'
     }}
   >
     <React.StrictMode>

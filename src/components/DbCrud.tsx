@@ -7,14 +7,17 @@ import App from '../App'
 
 /* Interfaces */
 import { ClientInfo, Reviews, Bio, JobPost, Postings, User } from '../typeInterfaces'
+import { useHistory } from 'react-router-dom';
 
 
 const DbCrud: React.FC = () => {
+  const history = useHistory();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const userId = useContext(UserContext);
 
   const app = new Realm.App({ id: "all-set-wgyfg"});
 
+  
   async function getUserByAuthID(authID: string | null) {
     if (!authID) {
       return null;
@@ -31,13 +34,6 @@ const DbCrud: React.FC = () => {
 
       const query = { authID };
       const result = await usersCollection.findOne(query);
-      
-      // if (result === null) {
-      //   console.log('********************** RESULT *******************:', result)
-
-      // }
-      
-
       return result;
     } catch (error) {
       console.error('Error logging in or fetching data from MongoDB:', error);
