@@ -46,6 +46,7 @@ import UserDataContext from '../components/UserDataContext';
 import { Job, insertJobOffer } from '../components/CrudOperations';
 
 const Hire: React.FC = () => {
+    console.log('Re-render')
     const [ProjectName, setProjecttName] = useState<string>('');
     
     

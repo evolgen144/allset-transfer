@@ -7,6 +7,7 @@ import UserOnboard from "./pages/UserOnboard";
 // import Search from "./pages/Search"
 import Profilex from "./pages/Profilex"
 import Cal from "./pages/Calendar";
+import GrabProfile from './pages/GrabProfile';
 // import Messages from "./pages/Messages";
 // import Settings from "./pages/Settings";
 
@@ -54,6 +55,7 @@ const App: React.FC = () => {
                     <Route path="/Profilex" render={() => <Tabs />} />
                     <Route path="/Calendar" render={() => <Cal />} />
                     <Route path="/UserOnboard" render={() => <UserOnboard />} />
+                    <Route path="/GrabProfile" render={() => <GrabProfile />} />
                     <Route exact path="/"> <Redirect to="/Login" /></Route>
                 </IonRouterOutlet>
             </IonReactRouter>

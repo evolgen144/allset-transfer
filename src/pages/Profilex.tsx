@@ -1,22 +1,15 @@
 import React, { useContext } from 'react';
-import { IonButton, 
-	IonButtons, 
+import {
 	IonCard, 
 	IonCardContent, 
 	IonCardHeader, 
 	IonCardSubtitle, 
-	IonCardTitle, 
 	IonCol, 
 	IonContent, 
 	IonGrid, 
-	IonHeader, 
-	IonIcon, 
 	IonPage, 
 	IonRow, 
-	IonText,
-	IonImg,
-	IonTitle, 
-	IonToolbar } from '@ionic/react';
+	IonText } from '@ionic/react';
 
 /* CSS */
 import "./Profilex.css"
@@ -26,43 +19,42 @@ import "./Profilex.css"
 import UserDataContext from '../components/UserDataContext';
 
 /* Logo */
-import logo from '../assets/logo.png';
 
-import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline, personOutline } from "ionicons/icons";
-import { ClientInfo, Reviews, Bio, JobPost, Postings, User } from '../typeInterfaces'
+// import { User } from '../typeInterfaces'
 
 
 const Profilex: React.FC = () => {
 	const currentUser = useContext(UserDataContext);
-	const avatar = require(`../assets/${currentUser?.clientInfo.firstName}.png`);
+	// const avatar = require(`../assets/${currentUser?.clientInfo.firstName}.png`);
+	const avatar = require(`../assets/logo.png`);
 	console.log('User name:', currentUser?.clientInfo.firstName)
 
 
 
 	/* Experiment */
-	const getAllPastWork = (currentUser: User): string[] => {
-		return Object.values(currentUser!.bio.pastWork);
-	};
+	// const getAllPastWork = (currentUser: User): string[] => {
+	// 	return Object.values(currentUser!.bio.pastWork);
+	// };
 
-	/* Experiment */
-	const getAllReviews = (currentUser: User): string[] => {
-		return Object.values(currentUser!.bio.reviews);
-	};
+	// /* Experiment */
+	// const getAllReviews = (currentUser: User): string[] => {
+	// 	return Object.values(currentUser!.bio.reviews);
+	// };
 	
 	// const pastWorkArray: PastWork[] = getAllPastWork(currentUser);
-	const pastWorkTitles: string[] = getAllPastWork(currentUser!);
-	const reviewTitles: string[] = getAllReviews(currentUser!);
+	// const pastWorkTitles: string[] = getAllPastWork(currentUser!);
+	// const reviewTitles: string[] = getAllReviews(currentUser!);
 	
 
-	const renderPastWorkCards = (pastWorkTitles: string[]): JSX.Element[] => {
-		return pastWorkTitles.map((title, index) => (
-		  <IonCard key={index}>
-			<IonCardHeader>
-			  <p>{title}</p>
-			</IonCardHeader>
-		  </IonCard>
-		));
-	  };
+	// const renderPastWorkCards = (pastWorkTitles: string[]): JSX.Element[] => {
+	// 	return pastWorkTitles.map((title, index) => (
+	// 	  <IonCard key={index}>
+	// 		<IonCardHeader>
+	// 		  <p>{title}</p>
+	// 		</IonCardHeader>
+	// 	  </IonCard>
+	// 	));
+	//   };
 
 
 	return (
@@ -172,7 +164,7 @@ const Profilex: React.FC = () => {
 							</IonCardHeader>
 							<IonCardContent>
 								<IonText>
-									<p>{pastWorkTitles.join(' \n\n ')}</p>
+									{/* <p>{pastWorkTitles.join(' \n\n ')}</p> */}
 								</IonText>
 							</IonCardContent>
 						</IonCard>
@@ -189,7 +181,7 @@ const Profilex: React.FC = () => {
 								</IonCardHeader>
 								<IonCardContent>
 									<IonText>
-										<p>{reviewTitles}</p>
+										{/* <p>{reviewTitles}</p> */}
 									</IonText>
 								</IonCardContent>
 							</IonCard>

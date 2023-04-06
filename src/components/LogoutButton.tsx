@@ -6,38 +6,36 @@ import './LogoutButton.css'
 
 const LogoutButton: React.FC = () => {
 
-  const app = new Realm.App({ id: "all-set-wgyfg" });
+	const app = new Realm.App({ id: "all-set-wgyfg" });
 
-  const { logout } = useAuth0();
+	const { logout } = useAuth0();
 
-  /* Logout Auth0 */  
-  const logOutAuth = () => {
-    logout()
-  }
-    
-  async function logMeOut() {
-    // console.log("******The user is: ", app.currentUser)
+	/* Logout Auth0 */  
+	const logOutAuth = () => {
+		logout()
+	}
+		
+	async function logMeOut() {
+		/* Realm logout */
+		try {
+			// Log out the currently active user
+			await app.currentUser?.logOut();
 
-    /* Realm logout */
-    try {
-      // Log out the currently active user
-      await app.currentUser?.logOut();
-
-      // If successful, the currentUser should be null
-      console.log("User logged out");
-    } catch (error) {
-      console.error("AllSet Error logging out:", error);
-    }
+			// If successful, the currentUser should be null
+			console.log("User logged out");
+		} catch (error) {
+			console.error("AllSet Error logging out:", error);
+		}
 
 
-    logOutAuth()
-  }
+		logOutAuth()
+	}
 
-  return (
-    <IonButton expand='full' className="custom-button" onClick={() => logMeOut()}>
-      Log Out
-    </IonButton>
-  );
+	return (
+		<IonButton expand='full' className="custom-button" onClick={() => logMeOut()}>
+			Log Out
+		</IonButton>
+	);
 };
 
 export default LogoutButton;
