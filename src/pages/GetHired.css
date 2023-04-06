@@ -25,3 +25,9 @@ h1 {
     --background-activated: #6e7bbd;
     --background-hover: #6e7bbd;
 }
+
+.border {
+    --background: #3f429f29;
+    --background-activated: #6e7bbd;
+    --background-hover: #6e7bbd;
+}
