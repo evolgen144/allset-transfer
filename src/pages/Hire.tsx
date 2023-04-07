@@ -76,6 +76,7 @@ const Hire: React.FC = () => {
 
         /* Job posting Experiment */
         const jobOffer: Job = {
+            jobID: null,
             auth0Id: auth0ident,
             projectName: ProjectName,
             position: selectedItems,
@@ -86,7 +87,7 @@ const Hire: React.FC = () => {
             endDate: endDate
         }
         /* Posting of job */
-        const success = insertJobOffer(jobOffer);
+        const jobID = insertJobOffer(jobOffer);
         handleReset()
 
         // Insert success alert after job posted

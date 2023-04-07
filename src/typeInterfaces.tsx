@@ -41,3 +41,14 @@ export interface User {
 	Position: string;
 	bio: Bio;
 }
+
+export interface Chat {
+	[key: string]: string;
+}
+
+export interface Application {
+	jobID: string;
+	posterID: string;
+	applicantID: string;
+	// chat: Chat;
+}

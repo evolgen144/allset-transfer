@@ -2,7 +2,8 @@
     font-size: 15px!important;
 }
 .positions {
-    font-size: 10px!important;
+    color: #5f5f5f;
+    font-size: 14px!important;
 }
 .titlea {
     color: #40449f;
@@ -10,8 +11,8 @@
 }
 
 .titleb {
-    color: #40449f;
-    font-size: 30px!important;
+    color: #40459fa1;
+    font-size: 12px!important;
 }
 h1 {
     color: #40449f;
@@ -30,4 +31,22 @@ h1 {
     --background: #3f429f29;
     --background-activated: #6e7bbd;
     --background-hover: #6e7bbd;
+}
+
+.padzero {
+    padding: 0px;
+}
+
+.alignright {
+    padding: 0px;
+}
+
+.titlec {
+    color: #40449f;
+    font-size: 30px!important;
+}
+
+.rightMargin {
+    /* width: 1200px!important; */
+    margin-right: 10px;
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MouseEvent, useContext } from 'react';
+import UserDataContext from '../components/UserDataContext';
 import {
 		IonContent,
 		IonButton,
@@ -36,19 +37,29 @@ import '../theme/variables.css';
 import './GetHired.css'
 
 /* Get job insert */
-import { Job, listAllJobOffers } from '../components/CrudOperations';
+import { Job, listAllJobOffers, insertApplication } from '../components/CrudOperations';
+import { Application } from '../typeInterfaces';
 
 
 const Hire: React.FC = () => {
+
+	    /* Get User Auth0 id */
+		const auth0ident: string | undefined = useContext(UserDataContext)?.authID;
 		
 		const [jobs, setJobs] = useState<Job[]>([]);
 		const [showModal, setShowModal] = useState<boolean>(false);
 		const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 		const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
 		const [positionFilter, setPositionFilter] = useState<string[]>([]);
-		// const [dateFilter, setDateFilter] = useState<string>('');
 		const [searchQuery, setSearchQuery] = useState<string>('');
+		const [applicationJobID, setjobID] = useState<string>('');
+		const [applicationPosterID, setposterID] = useState<string>('');
 
+		const application: Application = {
+			jobID: applicationJobID,
+			posterID: applicationPosterID,
+			applicantID: auth0ident!
+		}
 
 		useEffect(() => {
 			// Fetch data from the `Jobs` collection using Realm AppServices
@@ -65,7 +76,6 @@ const Hire: React.FC = () => {
 			const filterJobs = () => {
 			  	const filtered = jobs.filter((job) => {
 					const matchPosition = positionFilter.length === 0 || positionFilter.some((pos) => job.position.includes(pos));
-					// const matchDate = !dateFilter || new Date(job.date) >= new Date(dateFilter);
 					const searchTokens = searchQuery.trim().toLowerCase().split(/\s+/);
 					const matchSearch = searchTokens.every((token) => {
 						return job.details.toLowerCase().includes(token) ||
@@ -85,14 +95,15 @@ const Hire: React.FC = () => {
 		const handleCardClick = (job: Job) => {
 			setSelectedJob(job);
 			setShowModal(true);
+			setjobID(job.jobID!.toString());
+			setposterID(job.auth0Id!);
 		};
 
-		const handleApply = () => {
-			// Implement your apply for job logic here
+		const handleApply = (poster:string, jobID:string) => (event: MouseEvent<HTMLIonButtonElement>) => {
 			console.log(`Applying for job: ${selectedJob?.projectName}`);
+			insertApplication(application)
 			setShowModal(false);
 		};
-
 
 		return (
 			<IonPage>
@@ -159,6 +170,16 @@ const Hire: React.FC = () => {
 							<IonCardHeader>
 								<IonCardTitle className='titlea'>{job.projectName}</IonCardTitle>
 								<IonCardSubtitle className='positions'>{job.position.join(' | ')}</IonCardSubtitle>
+								<IonGrid className='padzero titleb'>
+									<IonRow>
+										</IonRow>
+											Starting: {new Date(job.startDate!).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} in {job.location} 
+										<IonRow>
+										</IonRow>
+											Budget: {job.budget}
+										<IonRow>
+									</IonRow>
+								</IonGrid>	
 							</IonCardHeader>
 							<IonCardContent className='firstCard'>
 								{job.details.length > 100 ? job.details.slice(0, 100) + '...' : job.details}
@@ -172,7 +193,7 @@ const Hire: React.FC = () => {
 							<>
 								<IonCard>
 									<IonCardHeader>
-										<IonCardTitle className='titleb'>{selectedJob.projectName}</IonCardTitle>
+										<IonCardTitle className='titlec'>{selectedJob.projectName}</IonCardTitle>
 										<IonCardSubtitle>{/* Add subtitle if needed */}</IonCardSubtitle>
 									</IonCardHeader>
 									<IonCardContent>
@@ -189,7 +210,7 @@ const Hire: React.FC = () => {
 										<p>End Date: {new Date(selectedJob.endDate!).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 									</IonCardContent>
 								</IonCard>
-								<IonButton className="custom-button" expand="full" onClick={handleApply}>
+								<IonButton className="custom-button" expand="full" onClick={handleApply(selectedJob.auth0Id!, selectedJob.jobID!)}>
 									Apply
 								</IonButton>
 								<IonButton className="custom-button" expand="full" onClick={() => setShowModal(false)}>
