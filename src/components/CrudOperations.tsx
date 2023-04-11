@@ -117,25 +117,14 @@ export async function getJobsApplied(userId: string): Promise<Job[]> {
 }
 
 /* getJobApplicants */
-export async function getJobApplicants(newUser: User): Promise<boolean> {
-	try {
-		const user = await authenticateUser("adam@a.com", "Abc12345");
-		if (!user) throw new Error("User authentication failed");
+export async function getJobApplicants(userId: string, job: string): Promise<User[]> {
 
-		const addNewUserFunction = Crud.currentUser?.functions.insertNewUser;
-		const result = await addNewUserFunction!(newUser);
+	const user = await authenticateUser("adam@a.com", "Abc12345");
+	if (!user) throw new Error("User authentication failed");
 
-		if (result.insertedId) {
-			console.log("New User inserted successfully:", result.insertedId);
-			return true;
-		} else {
-			console.error("Error inserting New User:", result);
-			return false;
-		}
-		} catch (error) {
-			console.error("Error inserting authenticating or possibly inserting job offer:", error);
-			return false;
-		}
+	const getJobApplicantsFunction = Crud.currentUser?.functions.getJobApplicants;
+	const result = await getJobApplicantsFunction!(userId, job);
+	return result
 }
 
 /* getUserProfile */
