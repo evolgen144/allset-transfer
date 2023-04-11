@@ -25,8 +25,12 @@ import UserDataContext from '../components/UserDataContext';
 
 const Profilex: React.FC = () => {
 	const currentUser = useContext(UserDataContext);
-	// const avatar = require(`../assets/${currentUser?.clientInfo.firstName}.png`);
-	const avatar = require(`../assets/logo.png`);
+	let avatar;
+	try {
+		avatar = require(`../assets/${currentUser?.clientInfo.firstName}.png`);
+	} catch (error) {
+		avatar = require(`../assets/logo.png`);
+	}
 	console.log('User name:', currentUser?.clientInfo.firstName)
 
 

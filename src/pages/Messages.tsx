@@ -186,7 +186,37 @@ const Messages: React.FC = () => {
 					</IonContent>
 
 					<IonModal isOpen={showJobModal} onDidDismiss={closeJobModal}>
-						// Display job details or applicant cards based on the selectedOption
+						<IonContent>
+							{selectedJob && (
+								<>
+									<IonCard>
+										<IonCardHeader>
+											<IonCardTitle className='titlec'>{selectedJob.projectName}</IonCardTitle>
+											<IonCardSubtitle>{/* Add subtitle if needed */}</IonCardSubtitle>
+										</IonCardHeader>
+										<IonCardContent>
+											<h1>Details</h1>
+											<p>{selectedJob.details}</p>
+											<h1>Roles needed</h1>
+											<p>{selectedJob.position.join(' | ')}</p>
+											<h1>Budget</h1>
+											<p>{selectedJob.budget}</p>
+											<h1>Location</h1>
+											<p>{selectedJob.location}</p>
+											<h1>Production Dates:</h1>
+											<p>Start Date: {new Date(selectedJob.startDate!).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+											<p>End Date: {new Date(selectedJob.endDate!).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+										</IonCardContent>
+									</IonCard>
+									{/* <IonButton className="custom-button" expand="full" onClick={handleApply(selectedJob.auth0Id!, selectedJob.jobID!)}>
+										Apply
+									</IonButton> */}
+									<IonButton className="custom-button" expand="full" onClick={() => setShowJobModal(false)}>
+										Close
+									</IonButton>
+								</>
+							)}
+						</IonContent>
 					</IonModal>
 
 					<IonModal isOpen={showUserProfileModal} onDidDismiss={closeUserProfileModal}>
