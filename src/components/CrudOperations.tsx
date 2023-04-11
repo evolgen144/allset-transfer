@@ -73,7 +73,6 @@ export async function listAllJobOffers(): Promise<Job[]> {
 
 
 /* Insert a new user */
-
 export async function insertNewUser(newUser: User): Promise<boolean> {
 	try {
 		const user = await authenticateUser("adam@a.com", "Abc12345");
@@ -95,3 +94,68 @@ export async function insertNewUser(newUser: User): Promise<boolean> {
 		}
 }
 
+/* getJobsPosted */
+export async function getJobsPosted(userId: string): Promise<Job[]> {
+
+	const user = await authenticateUser("adam@a.com", "Abc12345");
+	if (!user) throw new Error("User authentication failed");
+
+	const getJobsPostedFunction = Crud.currentUser?.functions.getJobsPosted;
+	const result = await getJobsPostedFunction!(userId);
+	return result
+}
+
+/* getJobsApplied */
+export async function getJobsApplied(userId: string): Promise<Job[]> {
+
+	const user = await authenticateUser("adam@a.com", "Abc12345");
+	if (!user) throw new Error("User authentication failed");
+
+	const getJobsAppliedFunction = Crud.currentUser?.functions.getJobsApplied;
+	const result = await getJobsAppliedFunction!(userId);
+	return result
+}
+
+/* getJobApplicants */
+export async function getJobApplicants(newUser: User): Promise<boolean> {
+	try {
+		const user = await authenticateUser("adam@a.com", "Abc12345");
+		if (!user) throw new Error("User authentication failed");
+
+		const addNewUserFunction = Crud.currentUser?.functions.insertNewUser;
+		const result = await addNewUserFunction!(newUser);
+
+		if (result.insertedId) {
+			console.log("New User inserted successfully:", result.insertedId);
+			return true;
+		} else {
+			console.error("Error inserting New User:", result);
+			return false;
+		}
+		} catch (error) {
+			console.error("Error inserting authenticating or possibly inserting job offer:", error);
+			return false;
+		}
+}
+
+/* getUserProfile */
+export async function getUserProfile(newUser: User): Promise<boolean> {
+	try {
+		const user = await authenticateUser("adam@a.com", "Abc12345");
+		if (!user) throw new Error("User authentication failed");
+
+		const addNewUserFunction = Crud.currentUser?.functions.insertNewUser;
+		const result = await addNewUserFunction!(newUser);
+
+		if (result.insertedId) {
+			console.log("New User inserted successfully:", result.insertedId);
+			return true;
+		} else {
+			console.error("Error inserting New User:", result);
+			return false;
+		}
+		} catch (error) {
+			console.error("Error inserting authenticating or possibly inserting job offer:", error);
+			return false;
+		}
+}
