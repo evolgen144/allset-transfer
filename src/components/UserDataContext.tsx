@@ -49,7 +49,7 @@ interface User {
   // };
   authID: string;
   clientInfo: ClientInfo;
-  Position: string;
+  Position: string[];
   bio: Bio;
   // postings: Postings;
 }

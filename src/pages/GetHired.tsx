@@ -16,7 +16,7 @@ import {
 		IonGrid,
 		IonRow,
 		IonCol
-	} from '@ionic/react';
+} from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -154,10 +154,10 @@ const Hire: React.FC = () => {
 						<IonGrid>
 							<IonRow>
 								<IonCol>
-									<IonButton expand='full' className="custom-button" onClick={() => setSearchQuery('')}>Clear Search</IonButton>
+									<IonButton expand='full' className="custom-button" onClick={() => setPositionFilter([])}>Clear Filters</IonButton>
 								</IonCol>
 								<IonCol>
-									<IonButton expand='full' className="custom-button" onClick={() => setPositionFilter([])}>Clear Filters</IonButton>
+									<IonButton expand='full' className="custom-button" onClick={() => setSearchQuery('')}>Clear Search</IonButton>
 								</IonCol>
 							</IonRow>
 						</IonGrid>

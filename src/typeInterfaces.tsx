@@ -38,7 +38,7 @@ export interface User {
 	authID: string;
 	clientInfo: ClientInfo;
 	socials: Socials;
-	Position: string;
+	Position: string[];
 	bio: Bio;
 }
 

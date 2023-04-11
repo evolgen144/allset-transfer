@@ -38,7 +38,9 @@ import {
 	IonTitle,
 	IonImg,
 	IonTextarea,
-	IonContent
+	IonContent,
+	IonSelect,
+	IonSelectOption
 } from '@ionic/react';
 
 /* All-Set config */
@@ -94,6 +96,13 @@ const GrabProfile: React.FC = () => {
 	const [About, setAbout] = useState<string>('');
 	const [PastWork, setPastWork] = useState<string>('');
 
+	const [selectedItems, setSelectedItems] = useState<string[]>([]);
+    const positions = ['Director', '1st Assistant Director', 'Director of Photography', 
+    'Camera Operator', 'Videographer', 'Steadicam Operator', '1st Assistant', 'Camera', 
+    'Sound Operator', 'Sound Editor', 'Foley Artist', 'Key Grip', 'Gaffer', 'Best Boy Electric',
+    'Best Boy Grip', 'Photographer', 'Photo Assistant', 'Digitech', 'Producer', 'Production Assistant', 
+    'Production Coordinator', 'Wardrobe Stylist', 'Make Up Artist', 'Hair Stylist', 'Art Director',
+    'Prop Stylist', 'Video', 'Editor', 'Colorist', 'Sound Mixer'];
 
 	const pressSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
@@ -125,7 +134,7 @@ const GrabProfile: React.FC = () => {
 			authID: authident!,
 			clientInfo: clientInfo,
 			socials: Socials,
-			Position: Position,
+			Position: selectedItems,
 			bio: bio,
 		}
 
@@ -150,7 +159,7 @@ const GrabProfile: React.FC = () => {
 		setYouTube('');
 		setVimeo('');
 		setTwitter('');
-		setPosition('');
+		setSelectedItems([]);
 		setAbout('');
 		setPastWork('');
 	}
@@ -163,7 +172,7 @@ const GrabProfile: React.FC = () => {
 						<IonRow>
 							<IonCol size="12" className="ion-text-center colSize">
 								<IonImg src={logo} alt="AllSetLogo" style={{ height: '25%' }}/>
-								<IonTitle>Complete your profile</IonTitle>
+								<IonTitle className='titleMargin'>Complete your profile</IonTitle>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
@@ -173,58 +182,104 @@ const GrabProfile: React.FC = () => {
 				<form onSubmit={pressSubmit}>
 					<IonGrid>
 						<IonRow>
-							<IonItem>
-								<IonLabel position="floating">First Name</IonLabel>
-								<IonInput placeholder="First Name" value={FirstName} onIonChange={(e) => setFirstName(e.detail.value!)} />
-							</IonItem>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">First Name</IonLabel>
+									<IonInput placeholder="First Name" value={FirstName} onIonChange={(e) => setFirstName(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+							<IonCol>
 							<IonItem>
 								<IonLabel position="floating">Last Name</IonLabel>
 								<IonInput placeholder="Last Name" value={LastName} onIonChange={(e) => setLastName(e.detail.value!)} />
 							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Email</IonLabel>
-								<IonInput placeholder="Email" value={Email} onIonChange={(e) => setEmail(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Location</IonLabel>
-								<IonInput placeholder="Location" value={Location} onIonChange={(e) => setLocation(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Facebook</IonLabel>
-								<IonInput placeholder="Facebook" value={Facebook} onIonChange={(e) => setFacebook(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Instagram</IonLabel>
-								<IonInput placeholder="Instagram" value={Instagram} onIonChange={(e) => setInstagram(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">LinkedIn</IonLabel>
-								<IonInput placeholder="LinkedIn" value={LinkedIN} onIonChange={(e) => setLinkedIN(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">YouTube</IonLabel>
-								<IonInput placeholder="YouTube" value={YouTube} onIonChange={(e) => setYouTube(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Vimeo</IonLabel>
-								<IonInput placeholder="Vimeo" value={Vimeo} onIonChange={(e) => setVimeo(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Twitter</IonLabel>
-								<IonInput placeholder="Twitter" value={Twitter} onIonChange={(e) => setTwitter(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">Position</IonLabel>
-								<IonInput placeholder="Position" value={Position} onIonChange={(e) => setPosition(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">About</IonLabel>
-								<IonTextarea autoGrow={true} placeholder="About)" value={About} onIonChange={(e) => setAbout(e.detail.value!)} />
-							</IonItem>
-							<IonItem>
-								<IonLabel position="floating">PastWork</IonLabel>
-								<IonTextarea autoGrow={true} placeholder="Past Work (Separate each with `###`)" value={PastWork} onIonChange={(e) => setPastWork(e.detail.value!)} />
-							</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">Email</IonLabel>
+									<IonInput placeholder="Email" value={Email} onIonChange={(e) => setEmail(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">Location</IonLabel>
+									<IonInput placeholder="Location" value={Location} onIonChange={(e) => setLocation(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">Facebook</IonLabel>
+									<IonInput placeholder="Facebook" value={Facebook} onIonChange={(e) => setFacebook(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">Instagram</IonLabel>
+									<IonInput placeholder="Instagram" value={Instagram} onIonChange={(e) => setInstagram(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">LinkedIn</IonLabel>
+									<IonInput placeholder="LinkedIn" value={LinkedIN} onIonChange={(e) => setLinkedIN(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">YouTube</IonLabel>
+									<IonInput placeholder="YouTube" value={YouTube} onIonChange={(e) => setYouTube(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">Vimeo</IonLabel>
+									<IonInput placeholder="Vimeo" value={Vimeo} onIonChange={(e) => setVimeo(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+							<IonCol>
+								<IonItem>
+									<IonLabel position="floating">Twitter</IonLabel>
+									<IonInput placeholder="Twitter" value={Twitter} onIonChange={(e) => setTwitter(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol size='12'>
+								<IonItem>
+									<IonLabel position="floating">Position</IonLabel>
+										<IonSelect className="select-placeholder selectHeight" value={selectedItems} placeholder="The role or positions?" multiple onIonChange={(e) => setSelectedItems(e.detail.value as string[])}>
+											{positions.map((positions, index) => (
+												<IonSelectOption key={index} value={positions}>
+													{positions}
+												</IonSelectOption>
+											))}
+										</IonSelect>
+								</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol size='12'>
+								<IonItem>
+									<IonLabel position="floating">About</IonLabel>
+									<IonTextarea autoGrow={true} placeholder="About)" value={About} onIonChange={(e) => setAbout(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
+						</IonRow>
+						<IonRow>
+							<IonCol size='12'>
+								<IonItem>
+									<IonLabel position="floating">PastWork</IonLabel>
+									<IonTextarea autoGrow={true} placeholder="Past Work (Separate each with `###`)" value={PastWork} onIonChange={(e) => setPastWork(e.detail.value!)} />
+								</IonItem>
+							</IonCol>
 						</IonRow>
 						<IonRow>
 							<IonCol size='6'>
