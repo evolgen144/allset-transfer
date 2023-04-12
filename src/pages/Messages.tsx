@@ -294,7 +294,7 @@ const Messages: React.FC = () => {
 						<IonButtons slot="start">
 							<IonButton onClick={closeChat}>Close</IonButton>
 						</IonButtons>
-							<IonTitle>Chat</IonTitle>
+							<IonTitle>AllSet Chat</IonTitle>
 					</IonToolbar>
 				</IonHeader>
 				<Chat currentUserId={user!} otherUserId={selectedUser?.authID!} />
