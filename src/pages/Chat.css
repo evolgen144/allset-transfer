@@ -1,0 +1,33 @@
+.sender {
+    text-align: right !important;
+    font-weight: 900;
+    color: rgb(239, 9, 9) !important;
+}
+
+.receiver {
+    text-align: left;
+}
+
+.bgcolora {
+    background-color: rgba(146, 142, 255, 0.415) !important;
+    padding: 10px;
+    margin-left: 30px;
+    border-radius: 13px;
+}
+
+.bgcolorb {
+    background-color: rgba(146, 142, 255, 0.118) !important;
+    padding: 10px;
+    margin-right: 30px;
+    border-radius: 13px;
+}
+
+.custom-button {
+    --background: #3f439f;
+    --background-activated: #6e7bbd;
+    --background-hover: #6e7bbd;
+}
+
+.textbg {
+    background-color: rgba(210, 210, 210, 0.415) !important;
+}

@@ -50,3 +50,8 @@ h1 {
     /* width: 1200px!important; */
     margin-right: 10px;
 }
+
+.backsize {
+    color: #ffffff;
+    font-size: 10px!important;
+}
