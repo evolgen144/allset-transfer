@@ -38,7 +38,7 @@ type MenuOption = "Received" | "Made";
 const Messages: React.FC = () => {
 
 	const user: string | undefined = useContext(UserDataContext)?.authID;
-	const [selectedOption, setSelectedOption] = useState<MenuOption>("Received");
+	const [selectedOption, setSelectedOption] = useState<MenuOption>("Made");
 	const [jobsPosted, setJobsPosted] = useState<Job[]>([]);
 	const [jobsApplied, setJobsApplied] = useState<Job[]>([]);
 	const [applicants, setApplicants] = useState<User[]>([]);
@@ -100,10 +100,13 @@ const Messages: React.FC = () => {
 		};
 		
 		const handleChat = () => {
+			const selected = selectedUser?.authID
+			console.log("Chat between: ", {user, selected})
 			setShowChat(true);
 		};
 
 		const handleAppliedChat = () => {
+			console.log("Chat between: ", {user, selectedPosterID})
 			setShowAppliedChat(true);
 		};
 		

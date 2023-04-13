@@ -96,7 +96,7 @@ const Chat: React.FC<ChatProps> = ({ currentUserId, otherUserId }) => {
 	  <IonContent>
 		<IonList>
 		  {messages.map((message) =>
-			message.members.includes(otherUserId)
+			message.members.every((userId: string) => userId === currentUserId || userId === otherUserId)
 			  ? renderMessage(message, message.sender === currentUserId)
 			  : null
 		  )}
