@@ -166,9 +166,9 @@ const Hire: React.FC = () => {
 
 
 					{filteredJobs.map((job) => (
-						<IonCard key={job.projectName} onClick={() => handleCardClick(job)}>
+						<IonCard className={job.auth0Id! === auth0ident ? "myJobPost" : ""} key={job.projectName} onClick={() => handleCardClick(job)}>
 							<IonCardHeader>
-								<IonCardTitle className='titlea'>{job.projectName}</IonCardTitle>
+								<IonCardTitle className='titlea'>{job.auth0Id! === auth0ident ? "*" : ""} {job.projectName}</IonCardTitle>
 								<IonCardSubtitle className='positions'>{job.position.join(' | ')}</IonCardSubtitle>
 								<IonGrid className='padzero titleb'>
 									<IonRow>

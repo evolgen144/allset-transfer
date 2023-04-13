@@ -136,6 +136,7 @@ const Hire: React.FC = () => {
                     <IonGrid>
                         <IonRow className='ion-padding'>
                         <DatePicker
+                            className='wide'
                             selectsRange={true}
                             startDate={startDate}
                             endDate={endDate}

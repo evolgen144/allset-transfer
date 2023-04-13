@@ -38,3 +38,7 @@ opacity: 1;
 .titleMargin {
     margin-top: 1px;
 }
+
+.wide {
+    width: 200px !important;
+}

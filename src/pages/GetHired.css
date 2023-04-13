@@ -55,3 +55,7 @@ h1 {
     color: #ffffff;
     font-size: 10px!important;
 }
+
+.myJobPost {
+    --background: #3f429f29;
+}
