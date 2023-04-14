@@ -7,8 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
 import GetUser from './components/GetUser';
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN!;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID!;
+/* Add own Auth0 env variables */
+const domain = null
+const clientId = null
 
 const container = document.getElementById('root');
 const root = createRoot(container!);

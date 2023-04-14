@@ -18,10 +18,6 @@ import "./Profilex.css"
 /* UserDataContext */
 import UserDataContext from '../components/UserDataContext';
 
-/* Logo */
-
-// import { User } from '../typeInterfaces'
-
 
 const Profilex: React.FC = () => {
 	const currentUser = useContext(UserDataContext);
@@ -34,47 +30,8 @@ const Profilex: React.FC = () => {
 	console.log('User name:', currentUser?.clientInfo.firstName)
 
 
-
-	/* Experiment */
-	// const getAllPastWork = (currentUser: User): string[] => {
-	// 	return Object.values(currentUser!.bio.pastWork);
-	// };
-
-	// /* Experiment */
-	// const getAllReviews = (currentUser: User): string[] => {
-	// 	return Object.values(currentUser!.bio.reviews);
-	// };
-	
-	// const pastWorkArray: PastWork[] = getAllPastWork(currentUser);
-	// const pastWorkTitles: string[] = getAllPastWork(currentUser!);
-	// const reviewTitles: string[] = getAllReviews(currentUser!);
-	
-
-	// const renderPastWorkCards = (pastWorkTitles: string[]): JSX.Element[] => {
-	// 	return pastWorkTitles.map((title, index) => (
-	// 	  <IonCard key={index}>
-	// 		<IonCardHeader>
-	// 		  <p>{title}</p>
-	// 		</IonCardHeader>
-	// 	  </IonCard>
-	// 	));
-	//   };
-
-
 	return (
 		<IonPage className={ 'home' }>
-			{/* <IonHeader className="as_header">
-        		<IonToolbar className="as_toolbar">
-					<IonGrid className="as_grid">
-						<IonRow>
-							<IonCol size="12" className="ion-text-center colSize">
-								<IonImg src={logo} alt="AllSetLogo" style={{ height: '25%' }}/>
-								<IonTitle>Profile</IonTitle>
-							</IonCol>
-						</IonRow>
-					</IonGrid>
-				</IonToolbar>
-			</IonHeader> */}
 			<IonContent>
 
 				<div className='topHeader'></div>
@@ -103,36 +60,6 @@ const Profilex: React.FC = () => {
 													</IonText>
 												</IonCol>
 											</IonRow>
-
-											{/* <IonRow className='profileStats'>
-
-												<IonCol className='profileStat'>
-													
-													<IonCardTitle>109</IonCardTitle>
-													<IonCardSubtitle>Followinig</IonCardSubtitle>
-												</IonCol>
-
-												<IonCol className={ 'profileStat' }>
-													
-													<IonCardTitle>1.2k</IonCardTitle>
-													<IonCardSubtitle>Followers</IonCardSubtitle>
-												</IonCol>
-											</IonRow> */}
-										{/* </IonCol>
-									</IonRow>
-
-									<IonRow>
-										<IonCol size="6">
-											<IonButton fill="outline" expand="block">
-												Message
-											</IonButton>
-										</IonCol>
-
-										<IonCol size="6">
-											<IonButton color="primary" expand="block">
-												<IonIcon icon={ personAddOutline } size="small" />&nbsp;
-												Follow
-											</IonButton> */}
 										</IonCol>
 									</IonRow> 
 								</IonCardContent>

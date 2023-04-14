@@ -22,7 +22,7 @@ const DbCrud: React.FC = () => {
 		}
 
 		// Replace the placeholders with your actual email and password for Realm
-		const credentials = Realm.Credentials.emailPassword("adam@a.com", "Abc12345"); // ****** change user only adfam makes queries
+		const credentials = Realm.Credentials.emailPassword(null); // ****** replace with own credentials
 		try {
 			const user = await app.logIn(credentials);  // USER
 			console.log('Logged in to Realm as:', user.id);

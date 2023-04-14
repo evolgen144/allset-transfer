@@ -21,7 +21,6 @@ import './LoginPage.css';
 import logo from '../assets/logo.png';
 
 /* Auth0 imports */
-// 41153T.app
 import { useAuth0 } from '@auth0/auth0-react';
 
 

@@ -17,7 +17,7 @@ export interface Job {
 /* Insert a Job offer */
 export async function insertJobOffer(jobOffer: Job): Promise<boolean> {
 	try {
-		const user = await authenticateUser("adam@a.com", "Abc12345");
+		const user = await authenticateUser(null); // ****** replace with own credentials
 		if (!user) throw new Error("User authentication failed");
 
 		const addJobOfferFunction = Crud.currentUser?.functions.insertJobOffer;
@@ -41,7 +41,7 @@ export async function insertJobOffer(jobOffer: Job): Promise<boolean> {
 /* Insert an Application */
 export async function insertApplication(jobApplication: Application): Promise<boolean> {
 	try {
-		const user = await authenticateUser("adam@a.com", "Abc12345");
+		const user = await authenticateUser(null); // ****** replace with own credentials
 		if (!user) throw new Error("User authentication failed");
 
 		const addApplicationFunction = Crud.currentUser?.functions.insertApplication;
@@ -63,7 +63,7 @@ export async function insertApplication(jobApplication: Application): Promise<bo
 /* Get a list of all job offers */
 export async function listAllJobOffers(): Promise<Job[]> {
 	// try {
-		const user = await authenticateUser("adam@a.com", "Abc12345");
+		const user = await authenticateUser(null); // ****** replace with own credentials
 		if (!user) throw new Error("User authentication failed");
 
 		const listAllJobsFunction = Crud.currentUser?.functions.listAllJobOffers;
@@ -75,7 +75,7 @@ export async function listAllJobOffers(): Promise<Job[]> {
 /* Insert a new user */
 export async function insertNewUser(newUser: User): Promise<boolean> {
 	try {
-		const user = await authenticateUser("adam@a.com", "Abc12345");
+		const user = await authenticateUser(null); // ****** replace with own credentials
 		if (!user) throw new Error("User authentication failed");
 
 		const addNewUserFunction = Crud.currentUser?.functions.insertNewUser;
@@ -97,7 +97,7 @@ export async function insertNewUser(newUser: User): Promise<boolean> {
 /* getJobsPosted */
 export async function getJobsPosted(userId: string): Promise<Job[]> {
 
-	const user = await authenticateUser("adam@a.com", "Abc12345");
+	const user = await authenticateUser(null); // ****** replace with own credentials
 	if (!user) throw new Error("User authentication failed");
 
 	const getJobsPostedFunction = Crud.currentUser?.functions.getJobsPosted;
@@ -108,7 +108,7 @@ export async function getJobsPosted(userId: string): Promise<Job[]> {
 /* getJobsApplied */
 export async function getJobsApplied(userId: string): Promise<Job[]> {
 
-	const user = await authenticateUser("adam@a.com", "Abc12345");
+	const user = await authenticateUser(null); // ****** replace with own credentials
 	if (!user) throw new Error("User authentication failed");
 
 	const getJobsAppliedFunction = Crud.currentUser?.functions.getJobsApplied;
@@ -119,7 +119,7 @@ export async function getJobsApplied(userId: string): Promise<Job[]> {
 /* getJobApplicants */
 export async function getJobApplicants(userId: string, job: string): Promise<User[]> {
 
-	const user = await authenticateUser("adam@a.com", "Abc12345");
+	const user = await authenticateUser(null); // ****** replace with own credentials
 	if (!user) throw new Error("User authentication failed");
 
 	const getJobApplicantsFunction = Crud.currentUser?.functions.getJobApplicants;
@@ -130,7 +130,7 @@ export async function getJobApplicants(userId: string, job: string): Promise<Use
 /* getUserProfile */
 export async function getUserProfile(newUser: User): Promise<boolean> {
 	try {
-		const user = await authenticateUser("adam@a.com", "Abc12345");
+		const user = await authenticateUser(null); // ****** replace with own credentials
 		if (!user) throw new Error("User authentication failed");
 
 		const addNewUserFunction = Crud.currentUser?.functions.insertNewUser;

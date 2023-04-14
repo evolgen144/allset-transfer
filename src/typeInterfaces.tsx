@@ -16,14 +16,8 @@ export interface ClientInfo {
 	socials: Socials;
 }
 
-
-
-// export interface Reviews {
-// 	[key: string]: string; // possibly change to key: number
-// }
-
 export interface PastWork {
-	[key: string]: string; // possibly change to key: number
+	[key: string]: string;
 }
 
 export interface Bio {
@@ -32,9 +26,6 @@ export interface Bio {
 }
 
 export interface User {
-	// _id: {
-	// 	$oid: string;
-	// };
 	authID: string;
 	clientInfo: ClientInfo;
 	socials: Socials;
@@ -50,5 +41,4 @@ export interface Application {
 	jobID: string;
 	posterID: string;
 	applicantID: string;
-	// chat: Chat;
 }

@@ -45,7 +45,6 @@ const Messages: React.FC = () => {
 	const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 	const [selectedAppliedJob, setSelectedAppliedJob] = useState<Job | null>(null);
 	const [selectedUser, setSelectedUser] = useState<User | null>(null);
-	// const [userProfile, setUserProfile] = useState<User | null>(null);
 	const [showJobModal, setShowJobModal] = useState(false);
 	const [showUserProfileModal, setShowUserProfileModal] = useState(false);
 	const [specificJobModal, setSpecificJobModal] = useState(false);

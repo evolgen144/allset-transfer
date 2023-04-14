@@ -4,12 +4,10 @@ import { Redirect, Route } from 'react-router-dom';
 /* App Pages */
 import LoginPage from "./pages/LoginPage";
 import UserOnboard from "./pages/UserOnboard";
-// import Search from "./pages/Search"
 import Profilex from "./pages/Profilex"
 import Cal from "./pages/Calendar";
 import GrabProfile from './pages/GrabProfile';
-// import Messages from "./pages/Messages";
-// import Settings from "./pages/Settings";
+
 
 /* Tabs */
 import Tabs from './Tabs';

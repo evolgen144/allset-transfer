@@ -20,38 +20,17 @@ interface ClientInfo {
 }
 
 
-// interface Reviews {
-//   [key: string]: string;
-// }
-
-// interface PastWork {
-//   [key: string]: string;
-// }
-
 interface Bio {
   about: string;
   pastWork: string;
 }
 
-// interface JobPost {
-//   Title: string;
-//   Date: string;
-//   Description: string;
-// }
-
-// interface Postings {
-//   [key: string]: JobPost;
-// }
 
 interface User {
-  // _id: {
-  //   $oid: string;
-  // };
   authID: string;
   clientInfo: ClientInfo;
   Position: string[];
   bio: Bio;
-  // postings: Postings;
 }
 
 const UserDataContext = React.createContext<User | null>(null);
